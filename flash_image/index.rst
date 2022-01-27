@@ -3,13 +3,12 @@
 How to flash image
 ##################
 
-Entering Recovery Mode
-**********************
-
 TODO
 
-Flash MFI
-*********
+**Table of Contents:**
 
-TODO
+.. toctree::
+   :maxdepth: 1
 
+   recovery_mode.rst
+   flash_mfi.rst
