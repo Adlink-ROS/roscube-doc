@@ -3,18 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to roscube-doc's documentation!
-=======================================
+ADLINK ROScube Documentation
+============================
+
+Welcome to the ROScube documentation.
+
+The supported models:
+
+- ROScube-X 580
+- ROScube-X 58G
+- ROScube Pico NX
+- ROScube Pico Nano
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   flash_image/index.rst
