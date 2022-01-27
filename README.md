@@ -4,7 +4,7 @@
 
 ```bash
 sudo apt install python3-pip
-pip3 install sphinx
+pip3 install sphinx sphinx_rtd_theme
 ```
 
 * Test the website
