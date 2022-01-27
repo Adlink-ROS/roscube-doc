@@ -16,6 +16,11 @@ The supported models:
 - ROScube Pico Nano
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    flash_image/index.rst
+   peripherals/index.rst
+   packages/index.rst
+   gmsl_camera/index.rst
+   extension_box/index.rst
+   advanced/index.rst
