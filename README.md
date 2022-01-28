@@ -1,5 +1,9 @@
 # roscube-doc
 
+This is the source of https://adlink-ros.github.io/roscube-doc
+
+After modifying source file and pushing to GitHub, GitHub action will do the deployment automatically.
+
 * Install necessary packages
 
 ```bash

@@ -10,8 +10,8 @@ Welcome to the ROScube documentation.
 
 The supported models:
 
-- ROScube-X 580
-- ROScube-X 58G
+- ROScube-X 580 / ROScube-X 580-E
+- ROScube-X 58G / ROScube-X 58G-E
 - ROScube Pico NX
 - ROScube Pico Nano
 
