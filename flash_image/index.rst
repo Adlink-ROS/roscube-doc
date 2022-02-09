@@ -3,8 +3,8 @@
 How to flash image
 ##################
 
-Prerequisite
-^^^^^^^^^^^^
+**Prerequisite**
+
 
 Before flashing image to ROScube, you should prepare the following items:
 
