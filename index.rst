@@ -19,6 +19,7 @@ The supported models:
    :hidden:
 
    flash_image/index.rst
+   quick_start/index.rst
    peripherals/index.rst
    packages/index.rst
    gmsl_camera/index.rst

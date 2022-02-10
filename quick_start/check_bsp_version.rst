@@ -1,0 +1,23 @@
+.. _check_bsp_version:
+
+Check BSP Version
+#################
+
+You can use the following command to check BSP and L4T version on **ROScube**.
+
+To check L4T version, please use the following command.
+
+.. code-block:: bash
+
+    cat /etc/nv_tegra_release
+
+To check kernel version, please use the following command.
+
+.. code-block:: bash
+
+    uname -a
+
+.. image:: images/bsp-version.png
+  :width: 80%
+  :align: center
+
