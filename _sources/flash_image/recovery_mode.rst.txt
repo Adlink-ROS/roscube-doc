@@ -48,6 +48,10 @@ iii) Release RESET button dirst and then release RECOVERY button.
 4. Now ROScube is in recovery mode now.
 ---------------------------------------
 
+Check out the mode on **Host PC**.
+  * Normal mode will show **L4T**.
+  * Recovery mode will show **APX**. 
+
 .. image:: images/nvidia-usb.png
   :width: 80%
   :align: center
