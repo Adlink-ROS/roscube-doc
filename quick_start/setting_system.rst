@@ -12,4 +12,8 @@ Setting System Configuration
   * Username and Password
   * Nvpmodel Mode 
 
+.. image:: images/ROScube-power-on.png
+  :width: 80%
+  :align: center
+
 
