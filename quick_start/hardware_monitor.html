@@ -41,7 +41,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Quick Start</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setting_system.html">Setting System Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="check_bsp_version.html">Check BSP Version</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Monitor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Monitor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-jetson-stats">1. Install jetson-stats.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-the-nvidia-jetpack">2. Check the nvidia-jetpack.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-hardware-monitor">3. Run the Hardware Monitor.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../peripherals/index.html">The Peripherals</a></li>
@@ -82,6 +87,8 @@
 <div class="line">Since generic x86 computer with Nvidia GPU PCIe card under linux has a tool nvidia-smi to check GPU status, but ROscube-X and ROScube-Pico are ARM based CPU, there’s no nvidia-smi tool available.</div>
 <div class="line">You could use a third party tool: jetson-stats to monitor Jetson’s CPU, GPU and memory status.</div>
 </div>
+<div class="section" id="install-jetson-stats">
+<h2>1. Install jetson-stats.<a class="headerlink" href="#install-jetson-stats" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt install python-pip python-dev build-essential
 sudo pip install --upgrade pip
@@ -92,7 +99,20 @@ sudo pip install jetson-stats
 <p class="admonition-title">Note</p>
 <p>Then <strong>reboot</strong> system to apply jetson-stats systemcv service.</p>
 </div>
-<p>Run the Hardware Monitor, please use the following command.</p>
+</div>
+<div class="section" id="check-the-nvidia-jetpack">
+<h2>2. Check the nvidia-jetpack.<a class="headerlink" href="#check-the-nvidia-jetpack" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before using jetson-stats, you should install nvidia-jetpack first.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt show nvidia-jetpack
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/jetpack-show.png"><img alt="../_images/jetpack-show.png" class="align-center" src="../_images/jetpack-show.png" style="width: 80%;" /></a>
+</div>
+<div class="section" id="run-the-hardware-monitor">
+<h2>3. Run the Hardware Monitor.<a class="headerlink" href="#run-the-hardware-monitor" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo jtop
 </pre></div>
 </div>
@@ -108,9 +128,6 @@ sudo pip install jetson-stats
 <li><p>CPU RealTime Monitor Screenshoot</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/hardware-monitor-cpu.png"><img alt="../_images/hardware-monitor-cpu.png" class="align-center" src="../_images/hardware-monitor-cpu.png" style="width: 80%;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before using jetson-stats, you should install nvidia-jetpack first.</p>
 </div>
 </div>
 
