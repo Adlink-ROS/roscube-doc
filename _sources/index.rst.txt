@@ -8,20 +8,21 @@ ADLINK ROScube Documentation
 
 Welcome to the ROScube documentation.
 
-The supported models:
+Please refer to different sections based on your platform.
+
+**NVIDIA series**
 
 - ROScube-X 580 / ROScube-X 580-E
 - ROScube-X 58G / ROScube-X 58G-E
 - ROScube Pico NX
 - ROScube Pico Nano
 
+**Intel series**
+
+- ROScube-I
+
 .. toctree::
    :hidden:
 
-   flash_image/index.rst
-   quick_start/index.rst
-   peripherals/index.rst
-   packages/index.rst
-   gmsl_camera/index.rst
-   extension_box/index.rst
-   advanced/index.rst
+   nvidia/index.rst
+   intel/index.rst
