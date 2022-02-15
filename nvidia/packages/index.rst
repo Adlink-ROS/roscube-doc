@@ -10,7 +10,6 @@ TODO
 .. toctree::
    :maxdepth: 1
 
-   jtop.rst
    jetpack_sdk.rst
    container.rst
    ros_menu.rst

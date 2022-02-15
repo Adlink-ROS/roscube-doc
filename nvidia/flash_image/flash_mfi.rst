@@ -47,7 +47,7 @@ Assuming image's file name is ``RQX-580-MFI-Jetpack-4-5.zip``. Un-archive this f
      unzip RQX-580-MFI-Jetpack-4-5.zip
 
 Then, use internal tool, ``nvmflash.sh`` to run the flashing procedure. **Please make sure your Host PC has attached to ROScube-X**.
-Besure run ./nvmflash.sh as root permission.
+Besure run ``./nvmflash.sh`` as root permission.
 
 .. code-block:: bash
 
@@ -60,7 +60,9 @@ Besure run ./nvmflash.sh as root permission.
 
 .. note:: 
     
-    The flashing procedure might take 8 ~ 10 minutes.
+    If there are any errors, you can view ``mfilogs`` folder for further information.
+
+After 8 ~ 10 minutes, the flashing procedure will be complete.
 
 .. image:: images/nvidia-flash-success.png
   :width: 80%
@@ -69,7 +71,7 @@ Besure run ./nvmflash.sh as root permission.
 **Massive Flashing**
 
 
-``nvmflash.sh`` supports massive flashing, which means you can attach multiple ROScube and run nvmflash.sh to flash the image to multiple boards at the same time.
+``nvmflash.sh`` supports massive flashing, which means you can attach multiple ROScube and run ``nvmflash.sh`` to flash the image to multiple boards at the same time.
 
 .. warning:: 
     
