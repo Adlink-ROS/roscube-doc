@@ -26,7 +26,7 @@ Hardware Monitor
 
 .. note:: 
     
-    Before using jetson-stats, you should install nvidia-jetpack first.
+    Before using ``jetson-stats``, you should install ``nvidia-jetpack`` first.
 
 .. code-block:: bash
 
