@@ -12,3 +12,4 @@ TODO
 
    neuron_library.rst
    intel_ac9260.rst
+   bmi160_spi_demo/index.rst

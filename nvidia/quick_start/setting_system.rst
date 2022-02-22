@@ -17,4 +17,3 @@ After configuration, you'll see the Ubuntu desktop.
 .. image:: images/ROScube-power-on.png
   :width: 80%
   :align: center
-
