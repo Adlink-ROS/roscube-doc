@@ -22,3 +22,4 @@ The supported models:
    gmsl_camera/index.rst
    extension_box/index.rst
    advanced/index.rst
+   bmi160_spi_demo/index.rst
