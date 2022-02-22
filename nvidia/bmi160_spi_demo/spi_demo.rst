@@ -14,19 +14,21 @@ The data includes:
    * PMU STATUS
    * SENSOR DATA (ACCEL and GYRO).
 
-BMI160 SPI demo by using ``/dev/spidevx.x``.
+.. note::
+    
+    In this BMI160 demo, by using ``/dev/spidev2.0``.
 
 2. Build
 --------
 
-Download the code from Github `Adlink-ROS/bmi160_spi_demo  <https://github.com/rm-hull/spidev-test>`_.
+Download the code from Github `Adlink-ROS/bmi160_spi_demo  <https://github.com/Adlink-ROS/bmi160_spi_demo>`_.
 
 .. code-block:: bash
 
     git clone https://github.com/Adlink-ROS/bmi160_spi_demo.git
     cd bmi160_spi_demo
 
-3. Usage
+1. Usage
 --------
 
 Test the demo following the command.
@@ -62,7 +64,7 @@ iii) Result
 
 .. warning:: 
     
-    When occurred filed or errors, please check the **Errors Value** from `bmi160.h  <https://github.com/Adlink-ROS/bmi160_spi_demo/blob/88b37d14e1af33a44c467a1e3edfea82e5dc0ad2/bmi160_defs.h#L342>`_.
+    When occurred filed or error, please check the **Error Value** from `bmi160.h  <https://github.com/Adlink-ROS/bmi160_spi_demo/blob/88b37d14e1af33a44c467a1e3edfea82e5dc0ad2/bmi160_defs.h#L342>`_.
 
 
 

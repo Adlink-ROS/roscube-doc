@@ -11,7 +11,7 @@ Default setting in the code:
     * The default device was ``/dev/spidev0.0``.
     * The default mode were ``SPI_IOC_WR_MODE`` and ``SPI_IOC_RD_MODE``.
 
-You can change these setting on the file `spidev_test.c`.
+You can change these setting on the file ``spidev_test.c``.
 
 1. Building Test Tool
 ---------------------
