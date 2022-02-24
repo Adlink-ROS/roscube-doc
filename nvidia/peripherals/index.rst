@@ -3,7 +3,7 @@
 The Peripherals
 ###############
 
-TODO
+How to use the peripherals on NVIDIA platform.
 
 **Table of Contents:**
 

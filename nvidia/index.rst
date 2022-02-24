@@ -20,6 +20,7 @@ The supported models:
    peripherals/index.rst
    packages/index.rst
    gmsl_camera/index.rst
-   extension_box/index.rst
    advanced/index.rst
+.. TODO: Will be added in the future
+   extension_box/index.rst
    
