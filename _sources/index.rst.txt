@@ -26,3 +26,4 @@ Please refer to different sections based on your platform.
 
    nvidia/index.rst
    intel/index.rst
+   neuronsdk/index.rst
