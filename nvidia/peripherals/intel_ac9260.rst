@@ -21,4 +21,4 @@ The tutorial will guide you how to use Intel AC9260 on ROScube.
     sudo apt-get update
     sudo apt install backport-iwlwifi-dkms
 
-4. Reboot your system and 
+4. Reboot the system and you can use Intel AC9260 now.
