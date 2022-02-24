@@ -3,7 +3,7 @@
 Advanced Usage
 ##############
 
-TODO
+The section includes some advanced function of ADLINK's NVIDIA platform.
 
 **Table of Contents:**
 
