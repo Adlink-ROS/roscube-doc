@@ -3,7 +3,7 @@
 The Packages
 ############
 
-TODO
+Show the usage of application in NVIDIA platform.
 
 **Table of Contents:**
 
@@ -11,6 +11,7 @@ TODO
    :maxdepth: 1
 
    jetpack_sdk.rst
+.. TODO: Will be added in the future
    container.rst
    ros_menu.rst
    rmt.rst
