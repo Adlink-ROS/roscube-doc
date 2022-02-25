@@ -90,10 +90,19 @@
 <div class="section" id="install-from-apt-server">
 <h2>Install from apt server<a class="headerlink" href="#install-from-apt-server" title="Permalink to this headline"></a></h2>
 <ul class="simple">
+<li><p>Setup ADLINK apt repository</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -L --insecure https://neuron.adlinktech.com/debian/repo_signing.key <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s1">&#39;Acquire::https::neuron.adlinktech.com::Verify-Peer &quot;false&quot;;&#39;</span> <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99roscube &gt; /dev/null
+<span class="nb">echo</span> <span class="s1">&#39;Acquire::https::neuron.adlinktech.com::Verify-Host &quot;false&quot;;&#39;</span> <span class="p">|</span> sudo tee -a /etc/apt/apt.conf.d/99roscube &gt; /dev/null
+<span class="nb">echo</span> <span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2">] https://neuron.adlinktech.com/debian/common </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/roscube.list &gt; /dev/null
+sudo apt update
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>Install Neuron Library from ADLINK apt repository</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
-sudo apt install neuron-library
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install neuron-library
 </pre></div>
 </div>
 <ul class="simple">
