@@ -13,3 +13,4 @@ The section includes some advanced function of ADLINK's NVIDIA platform.
 .. This should be added in the future
    kernel_customization.rst
    rootfs_customization.rst
+   boot_on_external_storage/index.rst
