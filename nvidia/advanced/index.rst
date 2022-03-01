@@ -10,7 +10,9 @@ The section includes some advanced function of ADLINK's NVIDIA platform.
 .. toctree::
    :maxdepth: 1
 
+   boot_on_external_storage/index.rst
+   
 .. This should be added in the future
    kernel_customization.rst
    rootfs_customization.rst
-   boot_on_external_storage/index.rst
+   
