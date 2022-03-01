@@ -10,7 +10,7 @@ Show the usage of application in NVIDIA platform.
 .. toctree::
    :maxdepth: 1
 
-   jetpack_sdk.rst
+   jetpack_sdk/index.rst
 .. TODO: Will be added in the future
    container.rst
    ros_menu.rst
