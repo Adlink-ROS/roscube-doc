@@ -59,7 +59,7 @@ Modify darknet's Makefile with the following:
 
 .. note::
 
-    ADLINK doesn't own the pre-train data. Thsi pre-trained data is a contribution from original author in community.
+    ADLINK doesn't own the pre-trained data. This pre-trained data is a contribution from original author in community.
 
 6. Run object detector from example image.
 ------------------------------------------

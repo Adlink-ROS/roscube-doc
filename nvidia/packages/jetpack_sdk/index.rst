@@ -1,7 +1,7 @@
 .. _jetpack_sdk:
 
-The Jetpack SDK
-###############
+Jetpack SDK
+###########
 
 Show the usage of Jetpack SDK in NVIDIA platform.
    * How to Install Jetpack
