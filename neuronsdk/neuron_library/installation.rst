@@ -15,6 +15,7 @@ Install from apt server
 
 .. code-block:: bash
 
+    sudo apt install curl
     curl -L --insecure https://neuron.adlinktech.com/debian/repo_signing.key | sudo apt-key add -
     echo 'Acquire::https::neuron.adlinktech.com::Verify-Peer "false";' | sudo tee /etc/apt/apt.conf.d/99roscube > /dev/null
     echo 'Acquire::https::neuron.adlinktech.com::Verify-Host "false";' | sudo tee -a /etc/apt/apt.conf.d/99roscube > /dev/null
