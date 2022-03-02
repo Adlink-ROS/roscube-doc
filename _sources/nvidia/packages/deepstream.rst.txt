@@ -13,7 +13,7 @@ Here shows:
 
 Download the DeepStream for Jetson from `NVIDIA DEVELOPER <https://developer.nvidia.com/deepstream-getting-started>`_.
 
-After finished the download, to install you can **double click** the  `deb file` or follow the command:
+After downloading, you can **double click** the  `deb file` or follow the command to install:
 
 .. code:: 
 
@@ -32,7 +32,7 @@ After finished the download, to install you can **double click** the  `deb file`
 2.  DeepStream SDK Example Usage
 --------------------------------
 
-After finished DeepStream SDK installation, there will be some DeepStream examples and tools available under ``/opt/nvidia/deepstream/deepsteeam-<version>``.
+After DeepStream SDK installation, there will be some DeepStream examples and tools available under ``/opt/nvidia/deepstream/deepsteeam-<version>``.
 
 DeepStream Sample App
 *********************
@@ -41,7 +41,7 @@ DeepStream Sample App
 
     deepstream-app -c /opt/nvidia/deepstream/deepstream-<version>/samples/configs/deepstream-app/<config file>
 
-Where deepstream ``<version>`` following you installed before, and where ``<config file>`` could be replaced with the following table:
+deepstream ``<version>`` follows you installed before, and ``<config file>`` could be replaced with the following table:
 
 +--------------------+--------------------------------------------------------------------+
 | Model              | Config File                                                        |
@@ -54,4 +54,3 @@ Where deepstream ``<version>`` following you installed before, and where ``<conf
 +--------------------+--------------------------------------------------------------------+
 | NPN-2 (Pico AGX NX)| source12_1080p_dec_infer-resnet_tracker_tiled_display_fp16_tx2.txt |
 +--------------------+--------------------------------------------------------------------+
-

@@ -159,12 +159,22 @@ sudo ./&lt;the example you want to execute&gt;
 <ol class="arabic simple" start="4">
 <li><p>Run the python3 examples:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo python3 &lt;the example you want to execute&gt;.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo su
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>&lt;Neuron Library Python Path&gt;
+python3 &lt;the example you want to execute&gt;.py
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the pin number is wrong, change the pin in the example.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The <code class="docutils literal notranslate"><span class="pre">&lt;Neuron</span> <span class="pre">Library</span> <span class="pre">Python</span> <span class="pre">Path&gt;</span></code> is different based on Ubuntu distribution.</div>
+<div class="line">Ubuntu 18.04: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.6/dist-packages/</span></code></div>
+<div class="line">Ubuntu 20.04: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.8/dist-packages/</span></code></div>
+</div>
 </div>
 </div>
 </div>
