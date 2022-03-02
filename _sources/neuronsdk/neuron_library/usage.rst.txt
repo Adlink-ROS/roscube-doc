@@ -22,7 +22,7 @@ C Example
 
 1. Install necessary packages.
 
-.. code-block::bash
+.. code-block:: bash
 
     sudo apt install build-essential cmake
 
