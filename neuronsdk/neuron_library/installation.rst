@@ -11,7 +11,7 @@ There are two ways to install Neuron Library.
 Install from apt server
 -----------------------
 
-* Setup ADLINK apt repository
+* Setup ADLINK apt repository (Only intel-based system is needed, e.g. ROScube-I)
 
 .. code-block:: bash
 
@@ -20,6 +20,11 @@ Install from apt server
     echo 'Acquire::https::neuron.adlinktech.com::Verify-Host "false";' | sudo tee -a /etc/apt/apt.conf.d/99roscube > /dev/null
     echo "deb [arch=$(dpkg --print-architecture)] https://neuron.adlinktech.com/debian/common $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/roscube.list > /dev/null
     sudo apt update
+
+.. note:: 
+    
+    If you use nvidia series platform (e.g. ROScube-X / ROScube Pico),
+    the apt repository has already been set up in the BSP provided by ADLINK.
 
 * Install Neuron Library from ADLINK apt repository
 

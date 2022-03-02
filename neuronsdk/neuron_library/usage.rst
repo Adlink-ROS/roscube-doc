@@ -81,9 +81,16 @@ Python Example
 
 .. code-block:: bash
 
-    sudo python3 <the example you want to execute>.py
+    sudo su
+    export PYTHONPATH=<Neuron Library Python Path>
+    python3 <the example you want to execute>.py
 
 .. note::
 
     If the pin number is wrong, change the pin in the example.
     
+.. note::
+
+    | The ``<Neuron Library Python Path>`` is different based on Ubuntu distribution.
+    | Ubuntu 18.04: ``export PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.6/dist-packages/``
+    | Ubuntu 20.04: ``export PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.8/dist-packages/``
