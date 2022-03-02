@@ -100,33 +100,36 @@ Supported hardware and information about the ROSCube I/O pin mapping can be foun
 <div class="section" id="c-example">
 <h2>C Example<a class="headerlink" href="#c-example" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
+<li><p>Install necessary packages.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
 <li><p>Create a working space under the <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory and navigate to it.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir neuronlibex_ws
 <span class="nb">cd</span> neuronlibex_ws
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li><p>Copy the example file to your working space.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp -r /opt/adlink/neuron-sdk/neuron-library/share/mraa/* .
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li><p>Create a “build” directory under your working space and navigate to it.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
 <span class="nb">cd</span> build
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li><p>Build the examples.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../examples/
 make
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li><p>Run the examples under the directory <code class="docutils literal notranslate"><span class="pre">~/neuronlibex_ws/build/c/</span></code>.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> c/
