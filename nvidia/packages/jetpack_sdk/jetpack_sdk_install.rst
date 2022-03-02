@@ -3,8 +3,9 @@
 Jetpack SDK Installation
 ########################
 
-Since Nvidia L4T 32.4.x support L4T OTA, that users can download Nvidia JetPack from Nvidia’s official APT
-repository. For ROScube-X users, you can use apt to install Nvidia JetPack compoments, e.g. tensorrt, cuda.
+Since Nvidia L4T 32.4.x support L4T OTA, users can download Nvidia JetPack from Nvidia’s official APT
+repository.
+For ROScube-X users, you can use apt to install Nvidia JetPack compoments, e.g. tensorrt, cuda.
 
 1. Install nvidia-l4t-jetson-multimedia-api
 -------------------------------------------
@@ -22,7 +23,8 @@ sion coresponding to L4T version.
 
 2. Install the whole JetPack SDK
 --------------------------------
-Assuming your Jetson developer kit has been flashed with and is running **L4T 32.3.1** or higher,the following commands will install **all** ``JetPack``.
+Assuming your Jetson developer kit has been flashed with and is running **L4T 32.3.1** or higher,
+the following commands will install **all** ``JetPack``.
 
 .. code-block:: bash
 
