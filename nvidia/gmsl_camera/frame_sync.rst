@@ -21,8 +21,8 @@ Typically, if you want to use FSYNC in RQX-58G, you need to follow the procedure
   :width: 80%
   :align: center
 
-| Frame Sync mode is a mechanism to make sure all of your camera is in passive mode, and every frame can by triggered by external signal. 
-| Therefore, host side has the full permission to control when the camera to collect the frame and the received timestamp.
+| Frame Sync mode is a mechanism to make sure all of your cameras are in passive mode, and every frame can by triggered by external signal. 
+| Therefore, host side has the full permission to control when the camera collects the frame and the received timestamp.
 
 .. image:: images/frame-sync-30fps.png
   :width: 80%
@@ -61,12 +61,12 @@ To change the ``trigger_mode`` by following terminal commands:
 
 .. note::
 
-    If value is **0**, which means all AR0233 camera is in free run-mode, if value is **1**, all ar0233 cameras are in frame sync mode.
+    If value is **0**, which means all AR0233 cameras are in free run-mode, if value is **1**, all AR0233 cameras are in frame sync mode.
 
 2. Trigger Frames by external I/O
 ---------------------------------
 
-Now we can use external I/O library to control FSYNC frequence. ROScube has provides a I/O library called **Neuron Library**.
+Now we can use external I/O library to control FSYNC frequence. ADLINK provides a I/O library called **Neuron Library**.
 
 .. code::
 

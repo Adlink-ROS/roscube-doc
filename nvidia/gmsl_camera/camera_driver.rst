@@ -1,13 +1,13 @@
 .. _camera_driver:
 
-Camera Driver Usage
-###################
+Camera Driver Installation
+##########################
 
 You need to install dedicated Camera's driver (e.g. ``leopard-ar0233-gmsl``).
 
 The driver is provided by **ADLINK** and could not be used on other vendor's platform since it is compiled into binary.
 
-And it can only download form **ADLINK ROScube's PPA server**.
+And it can only download form **ADLINK ROScube's APT repository**.
 
 1. Install Camera Driver.
 -------------------------

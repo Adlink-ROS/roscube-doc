@@ -7,7 +7,7 @@ Cameras without ISP can use **Argus API** to preview the camera's video streamin
 
 Or you can use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming.
 
-1. Video Frame Preview by GStreamer.
+Video Frame Preview by GStreamer.
 ------------------------------------
 
 Besure you have specify **sensor-id=0** on the following command.
@@ -53,4 +53,3 @@ If successful, you will see two windows from different cameras, like below.
 .. image:: images/gst-preview.png
   :width: 80%
   :align: center
-  
