@@ -32,7 +32,7 @@ After downloading, you can **double click** the  `deb file` or follow the comman
 2.  DeepStream SDK Example Usage
 --------------------------------
 
-After DeepStream SDK installation, there will be some DeepStream examples and tools available under ``/opt/nvidia/deepstream/deepsteeam-<version>``.
+After DeepStream SDK installation, there will be some DeepStream examples and tools available under ``/opt/nvidia/deepstream/deepstream-<version>``.
 
 DeepStream Sample App
 *********************
@@ -54,3 +54,8 @@ deepstream ``<version>`` follows you installed before, and ``<config file>`` cou
 +--------------------+--------------------------------------------------------------------+
 | NPN-2 (Pico AGX NX)| source12_1080p_dec_infer-resnet_tracker_tiled_display_fp16_tx2.txt |
 +--------------------+--------------------------------------------------------------------+
+
+
+.. image:: images/deepstream-demo.png
+  :width: 80%
+  :align: center
