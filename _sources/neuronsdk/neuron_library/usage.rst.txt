@@ -58,8 +58,11 @@ C Example
 .. code-block:: bash
 
     cd c/
-    #Examples should be run as root
-    sudo ./<the example you want to execute>
+    ./<the example you want to execute>
+
+.. note:: 
+
+    Refer to `C Examples <https://github.com/Adlink-ROS/mraa/blob/roscube_series/examples/c/README.md>`_ for more usage
 
 Python Example
 --------------
@@ -87,16 +90,8 @@ Python Example
 
 .. code-block:: bash
 
-    sudo su
-    export PYTHONPATH=<Neuron Library Python Path>
     python3 <the example you want to execute>.py
 
-.. note::
+.. note:: 
 
-    If the pin number is wrong, change the pin in the example.
-    
-.. note::
-
-    | The ``<Neuron Library Python Path>`` is different based on Ubuntu distribution.
-    | Ubuntu 18.04: ``export PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.6/dist-packages/``
-    | Ubuntu 20.04: ``export PYTHONPATH=/opt/adlink/neuron-sdk/neuron-library/lib/python3.8/dist-packages/``
+    Refer to `Python Examples <https://github.com/Adlink-ROS/mraa/blob/roscube_series/examples/python/README.md>`_ for more usage
