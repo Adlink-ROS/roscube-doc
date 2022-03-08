@@ -1,4 +1,4 @@
-.. _bmi160_spi_demo:
+:orphan:
 
 BMI160 SPI Demo
 ###############

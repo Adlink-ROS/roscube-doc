@@ -1,5 +1,3 @@
-.. _check_bsp_version:
-
 Check BSP Version
 #################
 

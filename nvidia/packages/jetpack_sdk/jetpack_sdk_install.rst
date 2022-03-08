@@ -1,5 +1,3 @@
-.. _jetpack_sdk_install:
-
 Jetpack SDK Installation
 ########################
 

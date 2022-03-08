@@ -1,5 +1,3 @@
-.. _jetpack_sdk_yolo:
-
 YOLO Object Detection
 #####################
 

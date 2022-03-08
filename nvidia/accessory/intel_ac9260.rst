@@ -1,4 +1,4 @@
-.. _intel_ac9260:
+:orphan:
 
 Using Intel AC9260 WiFi Card
 ############################

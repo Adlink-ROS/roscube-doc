@@ -1,5 +1,3 @@
-.. _mounting_nvme:
-
 Mounting FileSystem From NVMe M.2 SSD
 #####################################
 

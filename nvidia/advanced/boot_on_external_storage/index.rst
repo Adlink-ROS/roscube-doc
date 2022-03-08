@@ -1,5 +1,3 @@
-.. _boot_on_external_storage:
-
 Boot on External Storage
 ########################
 

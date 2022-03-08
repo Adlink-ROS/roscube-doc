@@ -1,4 +1,4 @@
-.. _packages:
+:orphan:
 
 The Packages
 ############

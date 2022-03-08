@@ -1,5 +1,3 @@
-.. _setting_system:
-
 Setting System Configuration
 ############################
 

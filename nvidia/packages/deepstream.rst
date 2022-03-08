@@ -1,5 +1,3 @@
-.. _deepstream:
-
 DeepStream SDK
 ##############
 

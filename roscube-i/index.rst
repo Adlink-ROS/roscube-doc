@@ -1,11 +1,12 @@
-.. _intel:
+.. _roscube-i:
 
-Intel series
-############
+ROScube-I series
+################
 
 The supported models:
 
 - ROScube-I
+- ROScube-I-E
 
 **Table of Contents:**
 

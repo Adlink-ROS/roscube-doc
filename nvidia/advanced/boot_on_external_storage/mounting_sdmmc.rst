@@ -1,5 +1,3 @@
-.. _mounting_sdmmc:
-
 Mounting FileSystem From SD Card
 ################################
 

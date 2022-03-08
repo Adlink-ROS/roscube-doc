@@ -1,5 +1,3 @@
-.. _spi_test:
-
 How to Test SPI
 ###############
 

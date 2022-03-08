@@ -1,5 +1,3 @@
-.. _hardware_monitor:
-
 Hardware Monitor
 ################
 

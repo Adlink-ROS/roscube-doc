@@ -1,4 +1,4 @@
-.. _quick_start:
+:orphan:
 
 Quick Start
 ###############

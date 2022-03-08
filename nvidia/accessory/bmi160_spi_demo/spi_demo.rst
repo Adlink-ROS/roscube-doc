@@ -1,5 +1,3 @@
-.. _spi_demo:
-
 How to Make SPI Demo
 ####################
 

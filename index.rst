@@ -12,10 +12,8 @@ Please refer to different sections based on your platform.
 
 **NVIDIA series**
 
-- ROScube-X 580 / ROScube-X 580-E
-- ROScube-X 58G / ROScube-X 58G-E
-- ROScube Pico NX
-- ROScube Pico Nano
+- ROScube-X series
+- ROScube Pico series
 
 **Intel series**
 
@@ -24,6 +22,7 @@ Please refer to different sections based on your platform.
 .. toctree::
    :hidden:
 
-   nvidia/index.rst
-   intel/index.rst
+   roscube-x/index.rst
+   roscube-pico/index.rst
+   roscube-i/index.rst
    neuronsdk/index.rst
