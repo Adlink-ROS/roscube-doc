@@ -17,7 +17,7 @@ The supported models:
 
    flash_image/index.rst
    quick_start/index.rst
-   peripherals/index.rst
+   accessory/index.rst
    packages/index.rst
    gmsl_camera/index.rst
    advanced/index.rst

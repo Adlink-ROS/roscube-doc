@@ -1,9 +1,9 @@
-.. _peripherals:
+.. _accessory:
 
-The Peripherals
-###############
+Accessory
+#########
 
-How to use the peripherals on NVIDIA platform.
+How to use the accessory on NVIDIA platform.
 
 **Table of Contents:**
 
