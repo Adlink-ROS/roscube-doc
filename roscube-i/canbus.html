@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to use CAN bus &mdash; roscube-doc 0.9.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Neuron SDK" href="../neuronsdk/index.html" />
+    <link rel="prev" title="ROScube-I series" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> roscube-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../roscube-x/index.html">ROScube-X series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roscube-pico/index.html">ROScube-Pico series</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROScube-I series</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use CAN bus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-preparation">Hardware preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test">Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../neuronsdk/index.html">Neuron SDK</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roscube-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">ROScube-I series</a> &raquo;</li>
+        
+      <li>How to use CAN bus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/roscube-i/canbus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-use-can-bus">
+<span id="canbus"></span><h1>How to use CAN bus<a class="headerlink" href="#how-to-use-can-bus" title="Permalink to this headline">¶</a></h1>
+<p>The tutorial will guide you how to use CAN bus module.</p>
+<p>Supported Model: ROScube-I series</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install CAN bus module into ROScube.</p></li>
+<li><p>Check if the Faro module exists</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls /dev/ttyUSB*
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">can-utils</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install can-utils
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Decompress FARO CAN driver.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf SocketCAN_V1.0.9.tgz
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Build <code class="docutils literal notranslate"><span class="pre">faro_can.ko</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> SocketCAN/V1.0.9/socketCAN/faro-socketcan/
+make
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Build <code class="docutils literal notranslate"><span class="pre">farocand</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> SocketCAN/V1.0.9/socketCAN/faro-can-utils/
+make
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Check version of <code class="docutils literal notranslate"><span class="pre">faro_can.ko</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> SocketCAN/V1.0.9/socketCAN/faro-socketcan/
+modinfo ./faro_can.ko
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Load module</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo modprobe can
+sudo modprobe can_raw
+<span class="nb">cd</span> SocketCAN/V1.0.9/socketCAN/
+sudo insmod ./faro-socketcan/faro_can.ko
+sudo ./faro-can-utils/farocand -s22 -S921600 /dev/ttyUSB0 faro_can0 faro_can1
+sudo ifconfig faro_can1 up
+sudo ifconfig faro_can0 up
+</pre></div>
+</div>
+</div>
+<div class="section" id="hardware-preparation">
+<h2>Hardware preparation<a class="headerlink" href="#hardware-preparation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Connect Pin43 with Pin44, and Pin10 with Pin11. In that way, the CAN_PORT0 and CAN_PORT1 are connected.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/roscube-canbus.jpg"><img alt="../_images/roscube-canbus.jpg" class="align-center" src="../_images/roscube-canbus.jpg" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../_images/roscube-db50.png"><img alt="../_images/roscube-db50.png" class="align-center" src="../_images/roscube-db50.png" style="width: 80%;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Turn on the Terminal Resistor on Port 1 or Port 2.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/FARO-FP.png"><img alt="../_images/FARO-FP.png" class="align-center" src="../_images/FARO-FP.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/FARO-switch.png"><img alt="../_images/FARO-switch.png" class="align-center" src="../_images/FARO-switch.png" style="width: 50%;" /></a>
+<ol class="arabic simple" start="3">
+<li><p>In the picture below, we turned on the Terminal Resistor of Port 0.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/FARO-light.jpg"><img alt="../_images/FARO-light.jpg" class="align-center" src="../_images/FARO-light.jpg" style="width: 80%;" /></a>
+</div>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Open terminal 1, enter below command to wait data from faro_can0:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>candump faro_can0 -t A
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Open terminal 2, enter below command to send data to faro_can1:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cansend faro_can1 <span class="m">123</span><span class="c1">#1122334455667788</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The test result should be similar to below picture:</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/canbus-result.png"><img alt="../_images/canbus-result.png" class="align-center" src="../_images/canbus-result.png" style="width: 80%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../neuronsdk/index.html" class="btn btn-neutral float-right" title="Neuron SDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="ROScube-I series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, ADLINK Autonomous Business Center
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
