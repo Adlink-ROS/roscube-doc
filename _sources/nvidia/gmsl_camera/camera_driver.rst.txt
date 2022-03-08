@@ -17,6 +17,8 @@ To install **Leopard AR0233 GMSL** camera, please by following terminal commands
 .. code::
     
     sudo apt update
+    # Remove lagecy leopard ar0233 kernel module.
+    sudo apt remove --purge leopard-ar0233-gmsl-kmod
     sudo apt install leopard-ar0233-gmsl
 
 2. Inspect Camera Driver.
@@ -38,10 +40,29 @@ To inspect your available camera device tree setting after installing, please us
 
     If there are two or more, please remove them which you don't use.
 
+    To remove unused camera driver, please use `sudo apt remove --purge <camera driver>`
+
 3. Apply Device Tree Settings.
 ------------------------------
 
 To apply **Leopard AR0233 device tree** settings to all camera channels, please use the following terminal command:
+
+**For Jetpack 4.5**, use the following
+
+Download the patched :download:`libgstnvarguscamerasrc.so <file/libgstnvarguscamerasrc.so>` and replace this file with the original one.
+
+.. code:: 
+
+    sudo rm /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
+    sudo mv libgstnvarguscamerasrc.so /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
+
+Then, apply device tree into your current system.
+
+.. code::
+
+    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 'Leopard AR0233 GMSL2 Camera Device Tree Overlay'
+
+**For Jetpack 4.6**, use the following
 
 .. code::
 
@@ -64,7 +85,7 @@ Please use the following terminal command:
 
 .. code::
 
-    ls /dev/video*
+    ls /dev/gmsl/*
 
 .. image:: images/dev-video.png
   :width: 80%
