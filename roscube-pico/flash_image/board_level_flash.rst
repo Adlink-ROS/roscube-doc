@@ -58,14 +58,14 @@ Assuming image's file name is ``mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-
 
 .. code-block:: bash
 
-    $> tar xvf mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2
+    tar xvf mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2
 
 Then, use BSP internal tool, ``nvmflash.sh`` to run the flashing procedure. **Please make sure your Host PC has attached to ROScube Pico**.
 
 .. code-block:: bash
 
-    $> cd mfi_rqp_nx
-    $> sudo ./nvmflash.sh 
+    cd mfi_rqp_nx
+    sudo ./nvmflash.sh 
 
 .. note::
 
