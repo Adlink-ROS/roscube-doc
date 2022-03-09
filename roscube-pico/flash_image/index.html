@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Accessory &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>How to flash image &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using Intel AC9260 WiFi Card" href="../nvidia/accessory/intel_ac9260.html" />
-    <link rel="prev" title="Hardware Monitor" href="../nvidia/quick_start/hardware_monitor.html" /> 
+    <link rel="next" title="Board Level ROScube Pico Flashing Image" href="board_level_flash.html" />
+    <link rel="prev" title="ROScube-Pico series" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,13 +83,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-x/index.html">ROScube-X series</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">ROScube-Pico series</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../flash_image/index.html">How to flash image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nvidia/quick_start/index.html">Quick Start</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Accessory</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nvidia/accessory/intel_ac9260.html">Using Intel AC9260 WiFi Card</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bmi160_spi_demo/index.html">BMI160 SPI Demo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to flash image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="board_level_flash.html">Board Level ROScube Pico Flashing Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system_level_flash.html">System Level ROScube Pico Flashing Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="massive_flash.html">Massive Flashing</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../nvidia/quick_start/index.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessory/index.html">Accessory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nvidia/packages/index.html">The Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nvidia/advanced/index.html">Advanced Usage</a></li>
 </ul>
@@ -143,13 +144,13 @@
         
           <li><a href="../index.html">ROScube-Pico series</a> &raquo;</li>
         
-      <li>Accessory</li>
+      <li>How to flash image</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/roscube-pico/accessory/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/roscube-pico/flash_image/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,14 +163,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="accessory">
-<h1>Accessory<a class="headerlink" href="#accessory" title="Permalink to this headline">¶</a></h1>
-<p>How to use the accessory on ROScube-Pico platform.</p>
+  <div class="section" id="how-to-flash-image">
+<span id="roscube-pico-flash-image"></span><h1>How to flash image<a class="headerlink" href="#how-to-flash-image" title="Permalink to this headline">¶</a></h1>
+<p><strong>ROScube Pico</strong> provides 2 skus, which are</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Board level ROScube Pico (Without chassis.)</p></li>
+<li><p>System level ROScube Pico (With chassis.)</p></li>
+</ol>
+</div></blockquote>
+<p><strong>Prerequisite</strong></p>
+<p>Before flashing image to ROScube, you should prepare the following items:</p>
+<ul class="simple">
+<li><p><strong>Host PC</strong> with <strong>Ubuntu 18.04 or 20.04</strong> operating system.</p></li>
+<li><p>A good quality micro-usb for connecting to ROScube Pico.</p></li>
+</ul>
 <p><strong>Table of Contents:</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../nvidia/accessory/intel_ac9260.html">Using Intel AC9260 WiFi Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmi160_spi_demo/index.html">BMI160 SPI Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board_level_flash.html">Board Level ROScube Pico Flashing Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_level_flash.html">System Level ROScube Pico Flashing Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="massive_flash.html">Massive Flashing</a></li>
 </ul>
 </div>
 </div>
@@ -182,10 +196,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../nvidia/accessory/intel_ac9260.html" class="btn btn-neutral float-right" title="Using Intel AC9260 WiFi Card" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="board_level_flash.html" class="btn btn-neutral float-right" title="Board Level ROScube Pico Flashing Image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../nvidia/quick_start/hardware_monitor.html" class="btn btn-neutral float-left" title="Hardware Monitor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="ROScube-Pico series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

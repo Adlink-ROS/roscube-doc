@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Board Level ROScube Pico Flashing Image &mdash; roscube-doc 0.9.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="System Level ROScube Pico Flashing Image" href="system_level_flash.html" />
+    <link rel="prev" title="How to flash image" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> roscube-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../roscube-x/index.html">ROScube-X series</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ROScube-Pico series</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">How to flash image</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Board Level ROScube Pico Flashing Image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-roscube-pico-into-recovery-mode">1. Set ROScube Pico into recovery mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-host-pc-and-roscube-pico-with-micro-usb-cable">2. Connect Host PC and ROScube Pico with micro usb cable.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-released-image-on-host-pc">3. Prepare released image on <strong>Host PC</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="system_level_flash.html">System Level ROScube Pico Flashing Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="massive_flash.html">Massive Flashing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nvidia/quick_start/index.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessory/index.html">Accessory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nvidia/packages/index.html">The Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nvidia/advanced/index.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../roscube-i/index.html">ROScube-I series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../neuronsdk/index.html">Neuron SDK</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">roscube-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">ROScube-Pico series</a> &raquo;</li>
+        
+          <li><a href="index.html">How to flash image</a> &raquo;</li>
+        
+      <li>Board Level ROScube Pico Flashing Image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/roscube-pico/flash_image/board_level_flash.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="board-level-roscube-pico-flashing-image">
+<span id="board-level-flash"></span><h1>Board Level ROScube Pico Flashing Image<a class="headerlink" href="#board-level-roscube-pico-flashing-image" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="set-roscube-pico-into-recovery-mode">
+<h2>1. Set ROScube Pico into recovery mode<a class="headerlink" href="#set-roscube-pico-into-recovery-mode" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Connect power cable to ROScube Pico.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/connect_power_cable.jpg"><img alt="../../_images/connect_power_cable.jpg" class="align-center" src="../../_images/connect_power_cable.jpg" style="width: 60%;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Power on ROScube Pico. (Press power button)</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/power_on.jpg"><img alt="../../_images/power_on.jpg" class="align-center" src="../../_images/power_on.jpg" style="width: 60%;" /></a>
+<ol class="arabic simple" start="3">
+<li><p>Short <strong>Pin 09 and Pin 10</strong> and <strong>hold short status</strong>.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/short_recovery.jpg"><img alt="../../_images/short_recovery.jpg" class="align-center" src="../../_images/short_recovery.jpg" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="../../_images/PM_header.png"><img alt="../../_images/PM_header.png" class="align-center" src="../../_images/PM_header.png" style="width: 60%;" /></a>
+<ol class="arabic simple" start="4">
+<li><p><strong>Hold Pin 09 and Pin 10 short status</strong> and press <strong>Reset</strong> button.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/reset_cube.jpg"><img alt="../../_images/reset_cube.jpg" class="align-center" src="../../_images/reset_cube.jpg" style="width: 60%;" /></a>
+<ol class="arabic simple" start="5">
+<li><p>Release <strong>Short pins</strong> and <strong>pull out short pins!!</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Now ROScube Pico is in recovery mode.</strong></p>
+</div>
+</div>
+<div class="section" id="connect-host-pc-and-roscube-pico-with-micro-usb-cable">
+<h2>2. Connect Host PC and ROScube Pico with micro usb cable.<a class="headerlink" href="#connect-host-pc-and-roscube-pico-with-micro-usb-cable" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/host_micro_usb.jpg"><img alt="../../_images/host_micro_usb.jpg" class="align-center" src="../../_images/host_micro_usb.jpg" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="../../_images/cube_micro_usb.jpg"><img alt="../../_images/cube_micro_usb.jpg" class="align-center" src="../../_images/cube_micro_usb.jpg" style="width: 60%;" /></a>
+</div>
+<div class="section" id="prepare-released-image-on-host-pc">
+<h2>3. Prepare released image on <strong>Host PC</strong><a class="headerlink" href="#prepare-released-image-on-host-pc" title="Permalink to this headline">¶</a></h2>
+<p>Assuming image’s file name is <code class="docutils literal notranslate"><span class="pre">mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2</span></code>. Un-archive this file first.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvf mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2
+</pre></div>
+</div>
+<p>Then, use BSP internal tool, <code class="docutils literal notranslate"><span class="pre">nvmflash.sh</span></code> to run the flashing procedure. <strong>Please make sure your Host PC has attached to ROScube Pico</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mfi_rqp_nx
+sudo ./nvmflash.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may need to input your <strong>host PC</strong>’s root password when flashing the image.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The flashing procedure might take 8 ~ 10 minutes.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="system_level_flash.html" class="btn btn-neutral float-right" title="System Level ROScube Pico Flashing Image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="How to flash image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, ADLINK Autonomous Business Center
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
