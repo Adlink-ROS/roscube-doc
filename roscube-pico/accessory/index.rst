@@ -8,4 +8,5 @@ How to use the accessory on ROScube-Pico platform.
 .. toctree::
    :maxdepth: 1
 
-   ../../nvidia/accessory/bmi160_spi_demo/index.rst
+   ../nvidia/accessory/intel_ac9260.rst
+   bmi160_spi_demo/index.rst
