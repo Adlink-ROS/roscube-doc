@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Usgae &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
-    <link rel="prev" title="Neuron Library" href="index.html" /> 
+    <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,17 +84,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-pico/index.html">ROScube-Pico series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-i/index.html">ROScube-I series</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Neuron SDK</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Neuron Library</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#install-from-apt-repository">Install from APT repository</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#build-from-source-code">Build from source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neuron_library/index.html">Neuron Library</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Neuron Startup Menu</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Usgae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useful-commands">Useful Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rosdriver.html">ROS 2 drvier</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../neuron_startup_menu/index.html">Neuron Startup Menu</a></li>
 </ul>
 </li>
 </ul>
@@ -145,15 +144,15 @@
         
           <li><a href="../index.html">Neuron SDK</a> &raquo;</li>
         
-          <li><a href="index.html">Neuron Library</a> &raquo;</li>
+          <li><a href="index.html">Neuron Startup Menu</a> &raquo;</li>
         
-      <li>Installation</li>
+      <li>Usgae</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/neuronsdk/neuron_library/installation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/neuronsdk/neuron_startup_menu/usage.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,46 +165,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<span id="nlib-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>There are two ways to install Neuron Library.</p>
+  <div class="section" id="usgae">
+<span id="nmenu-usage"></span><h1>Usgae<a class="headerlink" href="#usgae" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>After installation, there is a menu everytime you open the terminal.</p>
+<a class="reference internal image-reference" href="../../_images/menu_option.png"><img alt="../../_images/menu_option.png" class="align-center" src="../../_images/menu_option.png" style="width: 80%;" /></a>
 <ul class="simple">
-<li><p>Install from APT repository</p></li>
-<li><p>Build from source code</p></li>
+<li><p>Do nothing: Do not load any environment.</p></li>
+<li><p>ROS 1 noetic: Load ROS 1 noetic environment.</p></li>
+<li><p>ROS 2 foxy: Load ROS 2 foxy environment.</p></li>
+<li><p>ROS2/ROS1_bridge: Load ROS bridge environment and run ROS bridge automatically.</p></li>
+<li><p>Help: Show the usage of ROS menu.</p></li>
 </ul>
-<div class="section" id="install-from-apt-repository">
-<h2>Install from APT repository<a class="headerlink" href="#install-from-apt-repository" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Setup ADLINK APT repository (Only intel-based system is needed, e.g. ROScube-I)</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install curl
-curl -L --insecure https://neuron.adlinktech.com/debian/repo_signing.key <span class="p">|</span> sudo apt-key add -
-<span class="nb">echo</span> <span class="s1">&#39;Acquire::https::neuron.adlinktech.com::Verify-Peer &quot;false&quot;;&#39;</span> <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99roscube &gt; /dev/null
-<span class="nb">echo</span> <span class="s1">&#39;Acquire::https::neuron.adlinktech.com::Verify-Host &quot;false&quot;;&#39;</span> <span class="p">|</span> sudo tee -a /etc/apt/apt.conf.d/99roscube &gt; /dev/null
-<span class="nb">echo</span> <span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2">] https://neuron.adlinktech.com/debian/common </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/roscube.list &gt; /dev/null
-sudo apt update
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use nvidia series platform (e.g. ROScube-X / ROScube Pico),
-the APT repository has already been set up in the BSP provided by ADLINK.</p>
+<p>While using container, the docker image will be pulled at the first time running ROS environment.</p>
 </div>
-<ul class="simple">
-<li><p>Install Neuron Library from ADLINK APT repository</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install neuron-library
-</pre></div>
 </div>
+<div class="section" id="useful-commands">
+<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>After installation, the Neuron Library will be located in <code class="docutils literal notranslate"><span class="pre">/opt/adlink/neuron-sdk/neuron-library/</span></code>.</p></li>
-<li><p>Reboot the system and then you can use Neuron Library without root privilege.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_menu_disable</span></code>: Disable the ROS menu while opening a new terminal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_menu_enable</span></code>: Enable the ROS menu while opening a new terminal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_menu_env</span></code>: Show the environmental variables of current shell.</p></li>
 </ul>
 </div>
-<div class="section" id="build-from-source-code">
-<h2>Build from source code<a class="headerlink" href="#build-from-source-code" title="Permalink to this headline">¶</a></h2>
-<p>You can also build Neuron Library from source code.
-The source code of Neuron Library can be found at <a class="reference external" href="https://github.com/Adlink-ROS/mraa">https://github.com/Adlink-ROS/mraa</a>, and include usage examples and detailed information of the latest version.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The configuration of the Menu is <code class="docutils literal notranslate"><span class="pre">~/.ros_menu/config.yaml</span></code>.
+You can refer to the <a class="reference external" href="https://github.com/Adlink-ROS/ros_menu">README</a> for more information.</p>
 </div>
 </div>
 
@@ -217,10 +206,8 @@ The source code of Neuron Library can be found at <a class="reference external" 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Neuron Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
