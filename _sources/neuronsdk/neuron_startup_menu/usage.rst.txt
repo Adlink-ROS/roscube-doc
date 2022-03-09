@@ -29,6 +29,7 @@ Useful Commands
 * ``ros_menu_disable``: Disable the ROS menu while opening a new terminal.
 * ``ros_menu_enable``: Enable the ROS menu while opening a new terminal.
 * ``ros_menu_env``: Show the environmental variables of current shell.
+* ``ros_menu_clean_docker``: Clean docker image & container. Note that the packages you install in the container before will be lost.
 
 Configuration
 -------------
