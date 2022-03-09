@@ -24,7 +24,7 @@ Install from APT repository
 
 .. note:: 
     
-    If you use nvidia series platform (e.g. ROScube-X / ROScube Pico),
+    If you use NVIDIA series platform (e.g. ROScube-X / ROScube Pico),
     the APT repository has already been set up in the BSP provided by ADLINK.
 
 * Install Neuron Library from ADLINK APT repository

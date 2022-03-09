@@ -13,4 +13,4 @@ User need to identify if their camera has a internal **ISP** or not.
 
 If yes, user can use **V4L2 framework** to access the camera's RAW image. 
 
-If camera doesn't have a ISP inside their camera, they need to use **Argus Framework** which is provided by Nvidia to access the camera's RAW image.
+If camera doesn't have a ISP inside their camera, they need to use **Argus Framework** which is provided by NVIDIA to access the camera's RAW image.
