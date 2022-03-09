@@ -35,12 +35,9 @@ To inspect your available camera device tree setting after installing, please us
   :align: center
 
 .. warning::
-
-    It can only install one cammera's driver at the same time.
-
-    If there are two or more, please remove them which you don't use.
-
-    To remove unused camera driver, please use `sudo apt remove --purge <camera driver>`
+    | It can only install one cammera's driver at the same time.
+      If there are two or more, please remove them which you don't use.
+    | To remove unused camera driver, please use ``sudo apt remove --purge <camera driver>``
 
 3. Apply Device Tree Settings.
 ------------------------------
@@ -93,7 +90,5 @@ Please use the following terminal command:
 
 
 .. warning::
-    
-    If it can't show any video devices, make sure cameras are connected.
-
-    And check the error message by ``dmesg | egrep ar0233`` in terminal command.
+    | If it can't show any video devices, make sure cameras are connected.
+    | And check the error message by ``dmesg | egrep ar0233`` in terminal command.
