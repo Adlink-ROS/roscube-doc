@@ -11,4 +11,5 @@ Neuron SDK is the software set for ADLINK ROScube.
    :maxdepth: 1
 
    neuron_library/index.rst
+   neuron_startup_menu/index.rst
    
