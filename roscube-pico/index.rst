@@ -13,6 +13,7 @@ The supported models:
 .. toctree::
    :maxdepth: 1
 
+   flash_image/index.rst
    nvidia/quick_start/index.rst
    accessory/index.rst
    nvidia/packages/index.rst
