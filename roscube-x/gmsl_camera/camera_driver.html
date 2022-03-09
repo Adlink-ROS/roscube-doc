@@ -197,9 +197,11 @@
 <a class="reference internal image-reference" href="../../_images/config-hardware-list.png"><img alt="../../_images/config-hardware-list.png" class="align-center" src="../../_images/config-hardware-list.png" style="width: 80%;" /></a>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It can only install one cammera’s driver at the same time.</p>
-<p>If there are two or more, please remove them which you don’t use.</p>
-<p>To remove unused camera driver, please use <cite>sudo apt remove –purge &lt;camera driver&gt;</cite></p>
+<div class="line-block">
+<div class="line">It can only install one cammera’s driver at the same time.
+If there are two or more, please remove them which you don’t use.</div>
+<div class="line">To remove unused camera driver, please use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">remove</span> <span class="pre">--purge</span> <span class="pre">&lt;camera</span> <span class="pre">driver&gt;</span></code></div>
+</div>
 </div>
 </div>
 <div class="section" id="apply-device-tree-settings">
@@ -235,8 +237,10 @@
 <a class="reference internal image-reference" href="../../_images/dev-video.png"><img alt="../../_images/dev-video.png" class="align-center" src="../../_images/dev-video.png" style="width: 80%;" /></a>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If it can’t show any video devices, make sure cameras are connected.</p>
-<p>And check the error message by <code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">ar0233</span></code> in terminal command.</p>
+<div class="line-block">
+<div class="line">If it can’t show any video devices, make sure cameras are connected.</div>
+<div class="line">And check the error message by <code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">ar0233</span></code> in terminal command.</div>
+</div>
 </div>
 </div>
 </div>
