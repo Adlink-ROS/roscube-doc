@@ -3,23 +3,23 @@
 How to Install NVDIA Driver
 ###########################
 
-The tutorial will guide you how to install nvidia driver.
+The tutorial will guide you how to install NVIDIA driver.
 
-Supported Model: ROScube-I series
+Supported Model: ROScube-I-E
 
 1. Update your system.
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Running apt-get command to update system:
 
-.. code-block:: 
+.. code-block:: bash
 
     sudo apt update
     sudo apt upgrade
 
 Find out information about your GPU:
 
-.. code-block:: 
+.. code-block:: bash
 
     lspci | grep VGA
 
@@ -32,7 +32,7 @@ Find out information about your GPU:
 
 To show all drvier packages which apply to the current system, please type the command:
 
-.. code-block:: 
+.. code-block:: bash
 
     sudo ubuntu-drivers devices
 
@@ -45,26 +45,26 @@ Here is what we see:
 3. Install the GPU driver. 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here show two way how to install driver:
+Here show two ways how to install driver:
 
-    * Automatically installtion
+    * Automatically installation
     * Custom installation
 
-Automatically installtion
--------------------------
+Automatically installation
+--------------------------
 
 Let us install recommended driver automatically:
 
-.. code-block:: 
+.. code-block:: bash
 
     sudo ubuntu-drivers install
 
 Custom installation
 -------------------
 
-Install dirver which you want in drvier list:
+Install the dirver which you want in drvier list:
 
-.. code-block:: 
+.. code-block:: bash
 
     sudo apt install nvidia-driver-<version>
 
@@ -77,16 +77,16 @@ Install dirver which you want in drvier list:
 4. Reboot your system.
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
     sudo reboot
 
 5. Verification.
 ^^^^^^^^^^^^^^^^
 
-Open the terminal application and type ``nvidia-smi`` to see GPU info and process that are using Nvidia GPU:
+Open the terminal application and type ``nvidia-smi`` to see GPU info and process that are using NVIDIA GPU:
 
-.. code-block:: 
+.. code-block:: bash
 
     nvidia-smi
 
