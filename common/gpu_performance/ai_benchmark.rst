@@ -1,7 +1,7 @@
 AI Benchmark
 ############
 
-The chapter shows the data and performance of GPUs by **AI-Benchmark** on **ROScube series**.
+Here we show the data and performance of GPUs by **AI-Benchmark** on **ROScube series**.
 
 GPU Burn in / Test by `AI-Benchmark <https://ai-benchmark.com/alpha.html>`_.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
