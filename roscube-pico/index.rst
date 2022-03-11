@@ -18,4 +18,3 @@ The supported models:
    accessory/index.rst
    nvidia/packages/index.rst
    nvidia/advanced/index.rst
-   
