@@ -1,15 +1,7 @@
-.. _supported_gpu_model:
+AI Benchmark
+############
 
-Supported GPU Model
-###################
-
-The chapter shows some data and performance of GPU cards which be used on **ROScube-I-E**.
-
-GPU Table
-^^^^^^^^^
-
-    * NVIDIA RTX A2000  12G
-    * NVIDIA GTX 1050   2G
+The chapter shows the data and performance of GPUs by **AI-Benchmark** on **ROScube series**.
 
 GPU Burn in / Test by `AI-Benchmark <https://ai-benchmark.com/alpha.html>`_.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,7 +40,7 @@ GPU Score
 
 | After testing, we can go the `RANK <https://ai-benchmark.com/ranking_cpus_and_gpus.html>`_ to compare the performance of GPUs.
 
-| In the rank, you can see the open teating data of different GPUs.  
+| In the rank, you can see the open testing data of different GPUs.  
 | It is a fairer way to evaluate the performance of GPUs.
 
 +----------------+---------------------+-----------------+----------------+---------+

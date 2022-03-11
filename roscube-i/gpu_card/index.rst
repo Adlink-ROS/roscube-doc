@@ -5,14 +5,20 @@ GPU Card
 
 Supported Model: ROScube-I-E
 
-In this chapter, we will show you **Supported GPU Model** and **How to Install NVDIA Driver**.
+In this chapter, we show you:
+
+    * **How to Install NVDIA Driver** 
+    * **GPU Performance Evaluation**
+
+These GPU cards which be used on **ROScube-I-E** :
+
+    * NVIDIA RTX A2000  12G
+    * NVIDIA GTX 1050   2G
 
 **Table of Contents:**
 
 .. toctree::
    :maxdepth: 1
 
-   supported_gpu_model.rst
    nvidia_driver.rst
-.. This should be added in the future
-   test_gpu.rst
+   common/gpu_performance/index.rst
