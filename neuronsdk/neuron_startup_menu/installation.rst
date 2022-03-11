@@ -35,6 +35,10 @@ You can choose whether to install ROS environment in native host or in container
     Since NVIDIA platform BSP is Ubuntu 18.04, it's inconvenient to run ROS 2 foxy, which is the ROS LTS version.
     Open Robotics only supports ROS 2 foxy on Ubuntu 20.04.
 
+.. warning::
+
+    Since installing container needs extra disk space, make sure the remaining space is more than 5G.
+
 Uninstall
 ---------
 
