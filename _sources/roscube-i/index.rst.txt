@@ -14,3 +14,4 @@ The supported models:
    :maxdepth: 1
 
    canbus.rst
+   gpu_card/index.rst

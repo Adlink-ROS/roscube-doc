@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Boot on External Storage &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>GPU Performance Evaluation &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Mounting FileSystem From SD Card" href="mounting_sdmmc.html" />
-    <link rel="prev" title="Advanced Usage" href="../index.html" /> 
+    <link rel="next" title="AI Benchmark" href="ai_benchmark.html" />
+    <link rel="prev" title="How to Install NVDIA Driver" href="../../nvidia_driver.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,23 +82,19 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../roscube-x/index.html">ROScube-X series</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">ROScube-Pico series</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../flash_image/index.html">How to flash image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../quick_start/index.html">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../accessory/index.html">Accessory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../packages/index.html">The Packages</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced Usage</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Boot on External Storage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="mounting_sdmmc.html">Mounting FileSystem From SD Card</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mounting_nvme.html">Mounting FileSystem From NVMe M.2 SSD</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../common/gpu_performance/index.html">GPU Performance Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../roscube-pico/index.html">ROScube-Pico series</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">ROScube-I series</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../canbus.html">How to use CAN bus</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">GPU Card</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../nvidia_driver.html">How to Install NVDIA Driver</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GPU Performance Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ai_benchmark.html">AI Benchmark</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../roscube-i/index.html">ROScube-I series</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../neuronsdk/index.html">Neuron SDK</a></li>
 </ul>
 
@@ -145,17 +141,17 @@
     
       <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../index.html">ROScube-Pico series</a> &raquo;</li>
+          <li><a href="../../../index.html">ROScube-I series</a> &raquo;</li>
         
-          <li><a href="../index.html">Advanced Usage</a> &raquo;</li>
+          <li><a href="../../index.html">GPU Card</a> &raquo;</li>
         
-      <li>Boot on External Storage</li>
+      <li>GPU Performance Evaluation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/roscube-pico/nvidia/advanced/boot_on_external_storage/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/roscube-i/gpu_card/common/gpu_performance/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,30 +164,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="boot-on-external-storage">
-<h1>Boot on External Storage<a class="headerlink" href="#boot-on-external-storage" title="Permalink to this headline">¶</a></h1>
-<p>ROScube can boot (strictly mount) filesystem from external storage. Available types are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>SD card</p></li>
-<li><p>NVMe M.2 SSD</p></li>
-</ul>
-</div></blockquote>
-<div class="line-block">
-<div class="line">ADLINK provides a tool to <a class="reference external" href="https://github.com/Adlink-ROS/rootOnStorage">boot on external storage</a>.</div>
-<div class="line">Switch the rootfs to a NVMe SSD or SDMMC on the ROScube series.</div>
-<div class="line">(ROScube Pico or ROScube-X)</div>
-</div>
-<p>These scripts install a service which runs at startup to point the rootfs to a SSD installed on <code class="docutils literal notranslate"><span class="pre">/dev/nvme0</span></code> or SDMMC installed on <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk1</span></code> storage.</p>
-<p><strong>Parepare the rootOnStorage files from Github.</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Adlink-ROS/rootOnStorage.git
-</pre></div>
-</div>
+  <div class="section" id="gpu-performance-evaluation">
+<h1>GPU Performance Evaluation<a class="headerlink" href="#gpu-performance-evaluation" title="Permalink to this headline">¶</a></h1>
+<p>The chapter shows the GPU performance on ROScube series.</p>
 <p><strong>Table of Contents:</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="mounting_sdmmc.html">Mounting FileSystem From SD Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mounting_nvme.html">Mounting FileSystem From NVMe M.2 SSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_benchmark.html">AI Benchmark</a></li>
 </ul>
 </div>
 </div>
@@ -204,10 +183,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mounting_sdmmc.html" class="btn btn-neutral float-right" title="Mounting FileSystem From SD Card" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ai_benchmark.html" class="btn btn-neutral float-right" title="AI Benchmark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Advanced Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../nvidia_driver.html" class="btn btn-neutral float-left" title="How to Install NVDIA Driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
