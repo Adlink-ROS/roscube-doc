@@ -19,6 +19,7 @@ To install **Leopard AR0233 GMSL** camera, please by following terminal commands
     sudo apt update
     # Remove lagecy leopard ar0233 kernel module.
     sudo apt remove --purge leopard-ar0233-gmsl-kmod
+    sudo apt remove --purge rqx58g-ioboard-gmsl-kmod
     sudo apt install leopard-ar0233-gmsl
 
 2. Inspect Camera Driver.
