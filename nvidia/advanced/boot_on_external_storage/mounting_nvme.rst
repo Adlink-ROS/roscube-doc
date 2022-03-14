@@ -1,8 +1,7 @@
 Mounting FileSystem From NVMe M.2 SSD
 #####################################
 
-When mounting a **NVMe M.2 SSD** to RQX-580 or RQX-58G, the storage will be appeared as a ``/dev/nvme0n1``
-storage.
+When mounting a **NVMe M.2 SSD** to ROScube, the storage will be appeared as a ``/dev/nvme0n1`` storage.
 
 1. Format NVMe M.2 SSD to EXT4 filesystem.
 ------------------------------------------
