@@ -11,7 +11,6 @@ The chapter shows the GPU performance on ROScube series.
    :maxdepth: 1
 
    ai_benchmark.rst
-.. This should be added in the future
    ai_benchmark_usage.rst
    
    
