@@ -43,6 +43,8 @@ GPU Score
 | In the rank, you can see the open testing data of different GPUs.  
 | It is a fairer way to evaluate the performance of GPUs.
 
+Here, we provided some test data of GPUs which we actual tested on **ROScube series**.
+
 +----------------+---------------------+-----------------+----------------+---------+
 |Device          |GPU                  |Inference Score  |Training Score  |AI Score |
 +================+=====================+=================+================+=========+
