@@ -1,7 +1,7 @@
 Mounting FileSystem From SD Card
 ################################
 
-When inserting a **SD card** to RQX-580 or RQX-58G, the storage will be appeared as a ``/dev/mmcblk1`` storage.
+When inserting a **SD card** to ROScube, the storage will be appeared as a ``/dev/mmcblk1`` storage.
 
 1. Format SD card to EXT4 filesystem.
 -------------------------------------
