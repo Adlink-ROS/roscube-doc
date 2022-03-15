@@ -10,10 +10,17 @@ In this chapter, we show you:
     * **How to Install NVDIA Driver** 
     * **GPU Performance Evaluation**
 
-These GPU cards which be used on **ROScube-I-E** :
+**GPU Table:**
 
+These GPU cards which be used on **ROScube-I-E**.
+
+    * ADLINK Quadro PEG T1000 
     * NVIDIA RTX A2000  12G
     * NVIDIA GTX 1050   2G
+
+.. warning:: 
+    
+    We've not tested these GPU cards under critical thermal & vibration condition.
 
 **Table of Contents:**
 

@@ -25,6 +25,7 @@ You can choose whether to install ROS environment in native host or in container
 
 .. code-block:: bash
 
+    sudo apt install docker.io
     sudo groupadd docker
     sudo gpasswd -a $USER docker
     sudo reboot
