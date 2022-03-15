@@ -94,7 +94,12 @@ After testing, you will get the Score of GPU performance:
 
 Then go to the `ranking page <https://ai-benchmark.com/ranking_deeplearning.html>`_, and you can compare your device with open data.
 
-And, we provided some :ref:`gpu score` on ROScube series.
+And, we provided some testing data of ROScube:
+
+.. toctree::
+    :maxdepth: 1
+
+    ai_benchmark.rst
 
 Common Issue
 ^^^^^^^^^^^^

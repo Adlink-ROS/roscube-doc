@@ -1,5 +1,5 @@
-AI Benchmark
-############
+AI Benchmark Results
+####################
 
 Here we show the data and performance of GPUs by **AI-Benchmark** on **ROScube series**.
 
@@ -34,8 +34,6 @@ In total, AI Benchmark consists of 42 tests and 19 sections provided below:
 
 | In the testing, we can get the training time of different models.
 | Then AI-Benchmark will provide the score which the performance of GPUs. 
-
-.. _gpu score:
 
 GPU Score
 ^^^^^^^^^
