@@ -186,7 +186,8 @@ You can choose whether to install ROS environment in native host or in container
 <ul class="simple">
 <li><p>Add docker privilege to the current user (Only needed if you install ROS environment in container)</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo groupadd docker
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install docker.io
+sudo groupadd docker
 sudo gpasswd -a <span class="nv">$USER</span> docker
 sudo reboot
 </pre></div>

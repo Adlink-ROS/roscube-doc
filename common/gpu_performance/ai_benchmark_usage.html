@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to Use AI Benchmark &mdash; roscube-doc 0.9.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> roscube-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roscube-x/index.html">ROScube-X series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../roscube-pico/index.html">ROScube-Pico series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../roscube-i/index.html">ROScube-I series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../neuronsdk/index.html">Neuron SDK</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">roscube-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>How to Use AI Benchmark</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/common/gpu_performance/ai_benchmark_usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-use-ai-benchmark">
+<h1>How to Use AI Benchmark<a class="headerlink" href="#how-to-use-ai-benchmark" title="Permalink to this headline">¶</a></h1>
+<p>The tutorial will guide you how to use AI Benchmark on ROScube series.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>We used <strong>AI Benchmark</strong> to evaluate GPU performance on ROScube series.</p>
+<p><a class="reference external" href="https://ai-benchmark.com/alpha.html">AI Benchmark Alpha</a> is an open source python library for evaluating AI performance of various hardware platforms, including CPUs, GPUs and TPUs.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Here, we provided two usages on different ROScube series.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">GPU with at least 2GB of RAM is required for running inference tests / 4GB of RAM for training tests.</div>
+<div class="line">The benchmark is compatible with both TensorFlow 1.x and 2.x versions.</div>
+</div>
+</div>
+<div class="section" id="roscube-x-series-and-roscube-pico-series">
+<h3>ROScube-X series and ROScube-Pico series:<a class="headerlink" href="#roscube-x-series-and-roscube-pico-series" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html">Jetpack</a></p></li>
+<li><p>Install <a class="reference external" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">Tensorflow</a></p></li>
+<li><p>Install <a class="reference external" href="https://pypi.org/project/ai-benchmark/">ai-benchmark</a>  by terminal command</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ai-benchmark
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Use the following python code to run the benchmark:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from ai_benchmark import AIBenchmark
+<span class="nv">results</span> <span class="o">=</span> AIBenchmark<span class="o">()</span>.run<span class="o">()</span>
+</pre></div>
+</div>
+<p>To run inference or training only, use <code class="docutils literal notranslate"><span class="pre">benchmark.run_inference()</span></code> or <code class="docutils literal notranslate"><span class="pre">benchmark.run_training()</span></code>.</p>
+</div>
+<div class="section" id="roscube-i-series">
+<h3>ROScube-I series:<a class="headerlink" href="#roscube-i-series" title="Permalink to this headline">¶</a></h3>
+<p>Requirement:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Python: 3.8</p></li>
+<li><p>Keras: 2.6</p></li>
+<li><p>TensorFlow: 2.6</p></li>
+<li><p>Cuda: 11.4</p></li>
+<li><p>CudNN: 8.2</p></li>
+<li><p>Nvidia-driver: &gt;= 470</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#installdriver">GPU Driver</a></p></li>
+<li><p>Download CUDA from <a class="reference external" href="https://developer.nvidia.com/cuda-downloads">Nvidia website</a>.</p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/cudnn">Download</a> and <a class="reference external" href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html">install</a> cuDNN.</p></li>
+<li><p>Install Tensorflow by terminal command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="nv">tensorflow</span><span class="o">==</span>&lt;version&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Install <a class="reference external" href="https://pypi.org/project/ai-benchmark/">ai-benchmark</a> by terminal command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ai-benchmark
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Use the following python code to run the benchmark:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from ai_benchmark import AIBenchmark
+<span class="nv">results</span> <span class="o">=</span> AIBenchmark<span class="o">()</span>.run<span class="o">()</span>
+</pre></div>
+</div>
+<p>To run inference or training only, use <code class="docutils literal notranslate"><span class="pre">benchmark.run_inference()</span></code> or <code class="docutils literal notranslate"><span class="pre">benchmark.run_training()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>In total, AI Benchmark consists of 42 tests and 19 sections.</p>
+<p>After testing, you will get the Score of GPU performance:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Inference Score</p></li>
+<li><p>Training Score</p></li>
+<li><p>AI Score</p></li>
+</ul>
+</div></blockquote>
+<p>Then go to the <a class="reference external" href="https://ai-benchmark.com/ranking_deeplearning.html">ranking page</a>, and you can compare your device with open data.</p>
+<p>And, we provided some testing data of ROScube:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ai_benchmark.html">AI Benchmark Results</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="common-issue">
+<h2>Common Issue<a class="headerlink" href="#common-issue" title="Permalink to this headline">¶</a></h2>
+<p>When you run the python code, but you can’t show the CUDA version, like N/A.</p>
+<ol class="arabic simple">
+<li><p>Make sure install CUDA, you can find it in <code class="docutils literal notranslate"><span class="pre">/usr/local/cuda*</span></code></p></li>
+<li><p>Gedit <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> by terminal command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gedit ~/.bashrc
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Add the CUDA’s path to <code class="docutils literal notranslate"><span class="pre">./bashrc</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/cuda/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/cuda/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Refresh and check CUDA</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+nvcc -V
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, ADLINK Autonomous Business Center
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
