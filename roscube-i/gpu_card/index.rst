@@ -14,10 +14,7 @@ In this chapter, we show you:
 
 These GPU cards which be used on **ROScube-I-E**.
 
-
-
     * ADLINK Quadro PEG T1000 
-    * ADLINK Quadro-E PEG P1000
     * NVIDIA RTX A2000  12G
     * NVIDIA GTX 1050   2G
 

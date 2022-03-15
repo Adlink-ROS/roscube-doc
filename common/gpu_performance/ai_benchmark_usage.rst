@@ -97,9 +97,9 @@ Then go to the `ranking page <https://ai-benchmark.com/ranking_deeplearning.html
 And, we provided some testing data of ROScube:
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
 
-    ai_benchmark.rst
+   ai_benchmark.rst
 
 Common Issue
 ^^^^^^^^^^^^
