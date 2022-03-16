@@ -171,13 +171,38 @@
 <p><strong>RQX-58G</strong> is one of the <strong>ROScubeX series model</strong>, which extends <strong>GMSL2</strong> standard protocol cameras.</p>
 <p><strong>GMSL</strong> is SerDes protocol which provides high bandwidth and low latency video streaming for high resolution cameras.</p>
 <p>Unlike IP camera or other USB UVC standard cameras, GMSL camera provide RAW frame which has not been compressed by certain encoding algothrim, e.g. H.264 or H.265.</p>
-<p><strong>Before start you should prepare the following items:</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>ROScube RQX-58G</p></li>
-<li><p>Leopard AR0233 GMSL cameras</p></li>
-</ul>
-</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>GMSL camera does not support hot-plugging.
+Please connect the camera before bootup, or ROScube-X can not detect the camera.</p>
+</div>
+<p><strong>Supported GMSL camera</strong></p>
+<p>The following table is the supported GMSL camera list of RQX-58G.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 10%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Camera Model</p></th>
+<th class="head"><p>Vendor</p></th>
+<th class="head"><p>ISP</p></th>
+<th class="head"><p>Video Framework</p></th>
+<th class="head"><p>website link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LI-AR0233-GMSL2</p></td>
+<td><p>Leopard</p></td>
+<td></td>
+<td><p>NVIDIA Argus</p></td>
+<td><p><a class="reference external" href="https://www.leopardimaging.com/product-category/autonomous-camera/maxim-gmsl2-cameras/li-ar0233-gmsl2/">link</a></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Table of Contents:</strong></p>
 <div class="toctree-wrapper compound">
 <ul>

@@ -99,7 +99,7 @@ And, we provided some testing data of ROScube:
 .. toctree::
    :maxdepth: 1
 
-   ai_benchmark.rst
+   ai_benchmark_result.rst
 
 Common Issue
 ^^^^^^^^^^^^
