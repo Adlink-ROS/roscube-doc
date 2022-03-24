@@ -6,7 +6,7 @@ The tutorial will guide you how to use CAN bus on NVIDIA Platform.
 Supported Model: 
 
     * ROScube-X series
-    * ROScube-Pico series
+    * ROScube-Pico-NX series
 
 
 Hardware Pinout
@@ -18,7 +18,7 @@ Hardware Pinout
   :width: 50%
   :align: center
 
-* For ROScube-Pico series
+* For ROScube-Pico-NX series
 
 .. image:: images/pinout-pico.png
   :width: 50%
