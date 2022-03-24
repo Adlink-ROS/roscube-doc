@@ -152,18 +152,6 @@
 <p>When inserting a <strong>SD card</strong> to ROScube, the storage will be appeared as a <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk1</span></code> storage.</p>
 <div class="section" id="format-sd-card-to-ext4-filesystem">
 <h2>1. Format SD card to EXT4 filesystem.<a class="headerlink" href="#format-sd-card-to-ext4-filesystem" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> rootOnStorages/sdmmc
-sudo ./init-sdmmc.sh
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../../../_images/sdmmc-init.png"><img alt="../../../_images/sdmmc-init.png" class="align-center" src="../../../_images/sdmmc-init.png" style="width: 80%;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After format, you need <strong>remount the SDMMC</strong>.</p>
-</div>
-</div>
-<div class="section" id="copy-the-rootfs-of-the-emmc-to-the-sdmmc">
-<h2>2. Copy the rootfs of the eMMC to the SDMMC.<a class="headerlink" href="#copy-the-rootfs-of-the-emmc-to-the-sdmmc" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ./copy-rootfs-sdmmc.sh
 </pre></div>
 </div>
@@ -174,7 +162,7 @@ sudo ./init-sdmmc.sh
 </div>
 </div>
 <div class="section" id="setup-the-service">
-<h2>3. Setup the service.<a class="headerlink" href="#setup-the-service" title="Permalink to this headline">¶</a></h2>
+<h2>2. Setup the service.<a class="headerlink" href="#setup-the-service" title="Permalink to this headline">¶</a></h2>
 <p>This will copy the .service file to the correct location, and install a startup script to set the rootfs to the SD card.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ./setup-service.sh
 </pre></div>

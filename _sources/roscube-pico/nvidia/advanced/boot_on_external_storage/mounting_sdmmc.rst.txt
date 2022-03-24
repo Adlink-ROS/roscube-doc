@@ -8,22 +8,6 @@ When inserting a **SD card** to ROScube, the storage will be appeared as a ``/de
 
 .. code-block:: bash
 
-  cd rootOnStorages/sdmmc
-  sudo ./init-sdmmc.sh
-
-.. image:: images/sdmmc-init.png
-  :width: 80%
-  :align: center
-
-.. note:: 
-    
-    After format, you need **remount the SDMMC**.
-
-2. Copy the rootfs of the eMMC to the SDMMC.
---------------------------------------------
-
-.. code-block:: bash
-
   sudo ./copy-rootfs-sdmmc.sh
 
 .. image:: images/sdmmc-copy.png
@@ -34,7 +18,7 @@ When inserting a **SD card** to ROScube, the storage will be appeared as a ``/de
     
     After finishing, you can see ``to-chk=0/*``.
 
-3. Setup the service. 
+2. Setup the service. 
 ---------------------
 
 This will copy the .service file to the correct location, and install a startup script to set the rootfs to the SD card.

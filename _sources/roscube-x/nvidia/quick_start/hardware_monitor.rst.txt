@@ -1,7 +1,7 @@
 Hardware Monitor
 ################
 
-| Since generic x86 computer with NVIDIA GPU PCIe card under linux has a tool nvidia-smi to check GPU status, but ROscube-X and ROScube-Pico are ARM based CPU, there’s no nvidia-smi tool available. 
+| Since generic x86 computer with NVIDIA GPU PCIe card under linux has a tool nvidia-smi to check GPU status, but ROScube-X and ROScube-Pico are ARM based CPU, there’s no nvidia-smi tool available. 
 | You could use a third party tool: jetson-stats to monitor Jetson’s CPU, GPU and memory status.
 
 1. Install jetson-stats.
