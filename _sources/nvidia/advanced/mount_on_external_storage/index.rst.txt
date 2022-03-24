@@ -1,12 +1,12 @@
-Boot on External Storage
-########################
+Mount rootfs on External Storage
+################################
 
-ROScube can boot (strictly mount) filesystem from external storage. Available types are:
+ROScube can mount filesystem from external storage. Available types are:
 
     * SD card
     * NVMe M.2 SSD
 
-ADLINK provides a tool to `boot on external storage <https://github.com/Adlink-ROS/rootOnStorage>`_.
+ADLINK provides a tool to `mount rootfs on external storage <https://github.com/Adlink-ROS/rootOnStorage>`_.
 Switch the rootfs to a NVMe SSD or SDMMC on the ROScube series. 
 
 +------------------+---------+--------------+
@@ -19,7 +19,7 @@ Switch the rootfs to a NVMe SSD or SDMMC on the ROScube series.
 |ROScube-Pico-Nano |    V    |              |
 +------------------+---------+--------------+
 
-These scripts install a service which runs at startup to point the rootfs to a SSD installed on ``/dev/nvme0`` or SDMMC installed on ``/dev/mmcblk1`` storage.
+These scripts install a service which runs at startup to point the rootfs to NVMe installed on ``/dev/nvme0`` or SDMMC installed on ``/dev/mmcblk1``.
 
 **Parepare the rootOnStorage files from Github.**
 

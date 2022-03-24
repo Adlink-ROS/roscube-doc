@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mounting FileSystem From NVMe M.2 SSD &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Mount rootfs on External Storage &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="GPU Performance Evaluation" href="../common/gpu_performance/index.html" />
-    <link rel="prev" title="Mounting FileSystem From SD Card" href="mounting_sdmmc.html" /> 
+    <link rel="next" title="Mounting FileSystem From SD Card" href="mounting_sdmmc.html" />
+    <link rel="prev" title="Advanced Usage" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,9 +88,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../packages/index.html">The Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../gmsl_camera/index.html">GMSL 2 Camera</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced Usage</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Boot on External Storage</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mount rootfs on External Storage</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mounting_sdmmc.html">Mounting FileSystem From SD Card</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Mounting FileSystem From NVMe M.2 SSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mounting_nvme.html">Mounting FileSystem From NVMe M.2 SSD</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../common/gpu_performance/index.html">GPU Performance Evaluation</a></li>
@@ -150,15 +150,13 @@
         
           <li><a href="../index.html">Advanced Usage</a> &raquo;</li>
         
-          <li><a href="index.html">Boot on External Storage</a> &raquo;</li>
-        
-      <li>Mounting FileSystem From NVMe M.2 SSD</li>
+      <li>Mount rootfs on External Storage</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/roscube-x/nvidia/advanced/boot_on_external_storage/mounting_nvme.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/roscube-x/nvidia/advanced/mount_on_external_storage/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,32 +169,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mounting-filesystem-from-nvme-m-2-ssd">
-<h1>Mounting FileSystem From NVMe M.2 SSD<a class="headerlink" href="#mounting-filesystem-from-nvme-m-2-ssd" title="Permalink to this headline">¶</a></h1>
-<p>When mounting a <strong>NVMe M.2 SSD</strong> to ROScube, the storage will be appeared as a <code class="docutils literal notranslate"><span class="pre">/dev/nvme0n1</span></code> storage.</p>
-<div class="section" id="format-nvme-m-2-ssd-to-ext4-filesystem">
-<h2>1. Format NVMe M.2 SSD to EXT4 filesystem.<a class="headerlink" href="#format-nvme-m-2-ssd-to-ext4-filesystem" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> rootOnStorages/nvme
-sudo ./copy-rootfs-sdmmc.sh
+  <div class="section" id="mount-rootfs-on-external-storage">
+<h1>Mount rootfs on External Storage<a class="headerlink" href="#mount-rootfs-on-external-storage" title="Permalink to this headline">¶</a></h1>
+<p>ROScube can mount filesystem from external storage. Available types are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SD card</p></li>
+<li><p>NVMe M.2 SSD</p></li>
+</ul>
+</div></blockquote>
+<p>ADLINK provides a tool to <a class="reference external" href="https://github.com/Adlink-ROS/rootOnStorage">mount rootfs on external storage</a>.
+Switch the rootfs to a NVMe SSD or SDMMC on the ROScube series.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 22%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Device</p></th>
+<th class="head"><p>SD Card</p></th>
+<th class="head"><p>NVMe M.2 SSD</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ROScube-X</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROScube-Pico-NX</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>ROScube-Pico-Nano</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>These scripts install a service which runs at startup to point the rootfs to NVMe installed on <code class="docutils literal notranslate"><span class="pre">/dev/nvme0</span></code> or SDMMC installed on <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk1</span></code>.</p>
+<p><strong>Parepare the rootOnStorage files from Github.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Adlink-ROS/rootOnStorage.git
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../../_images/nvme-copy2.png"><img alt="../../../../_images/nvme-copy2.png" class="align-center" src="../../../../_images/nvme-copy2.png" style="width: 80%;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After finishing, you can see <code class="docutils literal notranslate"><span class="pre">to-chk=0/*</span></code>.</p>
-</div>
-</div>
-<div class="section" id="setup-the-service">
-<h2>2. Setup the service.<a class="headerlink" href="#setup-the-service" title="Permalink to this headline">¶</a></h2>
-<p>This will copy the .service file to the correct location, and install a startup script to set the rootfs to the SSD.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ./setup-service.sh
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../../../../_images/nvme-setup2.png"><img alt="../../../../_images/nvme-setup2.png" class="align-center" src="../../../../_images/nvme-setup2.png" style="width: 80%;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After setting up the service, <strong>reboot</strong> for the changes to take effect.</p>
-</div>
+<p><strong>Table of Contents:</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mounting_sdmmc.html">Mounting FileSystem From SD Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mounting_nvme.html">Mounting FileSystem From NVMe M.2 SSD</a></li>
+</ul>
 </div>
 </div>
 
@@ -208,10 +229,10 @@ sudo ./copy-rootfs-sdmmc.sh
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../common/gpu_performance/index.html" class="btn btn-neutral float-right" title="GPU Performance Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mounting_sdmmc.html" class="btn btn-neutral float-right" title="Mounting FileSystem From SD Card" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mounting_sdmmc.html" class="btn btn-neutral float-left" title="Mounting FileSystem From SD Card" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Advanced Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

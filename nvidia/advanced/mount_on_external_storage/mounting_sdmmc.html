@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mounting FileSystem From NVMe M.2 SSD &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Mounting FileSystem From SD Card &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -128,13 +128,13 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>Mounting FileSystem From NVMe M.2 SSD</li>
+      <li>Mounting FileSystem From SD Card</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/nvidia/advanced/boot_on_external_storage/mounting_nvme.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/nvidia/advanced/mount_on_external_storage/mounting_sdmmc.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -147,16 +147,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mounting-filesystem-from-nvme-m-2-ssd">
-<h1>Mounting FileSystem From NVMe M.2 SSD<a class="headerlink" href="#mounting-filesystem-from-nvme-m-2-ssd" title="Permalink to this headline">¶</a></h1>
-<p>When mounting a <strong>NVMe M.2 SSD</strong> to ROScube, the storage will be appeared as a <code class="docutils literal notranslate"><span class="pre">/dev/nvme0n1</span></code> storage.</p>
-<div class="section" id="format-nvme-m-2-ssd-to-ext4-filesystem">
-<h2>1. Format NVMe M.2 SSD to EXT4 filesystem.<a class="headerlink" href="#format-nvme-m-2-ssd-to-ext4-filesystem" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> rootOnStorages/nvme
+  <div class="section" id="mounting-filesystem-from-sd-card">
+<h1>Mounting FileSystem From SD Card<a class="headerlink" href="#mounting-filesystem-from-sd-card" title="Permalink to this headline">¶</a></h1>
+<p>When inserting a <strong>SD card</strong> to ROScube, the storage will be appeared as a <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk1</span></code> storage.</p>
+<div class="section" id="format-sd-card-to-ext4-filesystem">
+<h2>1. Format SD card to EXT4 filesystem.<a class="headerlink" href="#format-sd-card-to-ext4-filesystem" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> rootOnStorages/sdmmc
 sudo ./copy-rootfs-sdmmc.sh
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/nvme-copy.png"><img alt="../../../_images/nvme-copy.png" class="align-center" src="../../../_images/nvme-copy.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/sdmmc-copy.png"><img alt="../../../_images/sdmmc-copy.png" class="align-center" src="../../../_images/sdmmc-copy.png" style="width: 80%;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>After finishing, you can see <code class="docutils literal notranslate"><span class="pre">to-chk=0/*</span></code>.</p>
@@ -164,11 +164,11 @@ sudo ./copy-rootfs-sdmmc.sh
 </div>
 <div class="section" id="setup-the-service">
 <h2>2. Setup the service.<a class="headerlink" href="#setup-the-service" title="Permalink to this headline">¶</a></h2>
-<p>This will copy the .service file to the correct location, and install a startup script to set the rootfs to the SSD.</p>
+<p>This will copy the .service file to the correct location, and install a startup script to set the rootfs to the SD card.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ./setup-service.sh
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/nvme-setup.png"><img alt="../../../_images/nvme-setup.png" class="align-center" src="../../../_images/nvme-setup.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/sdmmc-setup.png"><img alt="../../../_images/sdmmc-setup.png" class="align-center" src="../../../_images/sdmmc-setup.png" style="width: 80%;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>After setting up the service, <strong>reboot</strong> for the changes to take effect.</p>

@@ -10,7 +10,7 @@ The section includes some advanced function of ADLINK's NVIDIA platform.
 .. toctree::
    :maxdepth: 1
 
-   boot_on_external_storage/index.rst
+   mount_on_external_storage/index.rst
    common/gpu_performance/index.rst
    
 .. This should be added in the future

@@ -8,7 +8,8 @@ When inserting a **SD card** to ROScube, the storage will be appeared as a ``/de
 
 .. code-block:: bash
 
-  sudo ./copy-rootfs-sdmmc.sh
+    cd rootOnStorages/sdmmc
+    sudo ./copy-rootfs-sdmmc.sh
 
 .. image:: images/sdmmc-copy.png
   :width: 80%
@@ -25,7 +26,7 @@ This will copy the .service file to the correct location, and install a startup 
 
 .. code-block:: bash
 
-  sudo ./setup-service.sh
+    sudo ./setup-service.sh
 
 .. image:: images/sdmmc-setup.png
   :width: 80%
@@ -34,6 +35,3 @@ This will copy the .service file to the correct location, and install a startup 
 .. note:: 
     
     After setting up the service, **reboot** for the changes to take effect.
-
-
-

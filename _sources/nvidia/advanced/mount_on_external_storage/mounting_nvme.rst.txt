@@ -8,8 +8,8 @@ When mounting a **NVMe M.2 SSD** to ROScube, the storage will be appeared as a `
 
 .. code-block:: bash
 
-  cd rootOnStorages/nvme
-  sudo ./copy-rootfs-sdmmc.sh
+    cd rootOnStorages/nvme
+    sudo ./copy-rootfs-nvme.sh
 
 .. image:: images/nvme-copy.png
   :width: 80%
@@ -26,7 +26,7 @@ This will copy the .service file to the correct location, and install a startup 
 
 .. code-block:: bash
 
-  sudo ./setup-service.sh
+    sudo ./setup-service.sh
 
 .. image:: images/nvme-setup.png
   :width: 80%
