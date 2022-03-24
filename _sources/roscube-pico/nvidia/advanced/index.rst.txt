@@ -11,6 +11,7 @@ The section includes some advanced function of ADLINK's NVIDIA platform.
    :maxdepth: 1
 
    mount_on_external_storage/index.rst
+   canbus.rst
    common/gpu_performance/index.rst
    
 .. This should be added in the future

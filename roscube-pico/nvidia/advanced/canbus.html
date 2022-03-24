@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced Usage &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>How to use CAN bus &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Mount rootfs on External Storage" href="mount_on_external_storage/index.html" />
-    <link rel="prev" title="DeepStream SDK" href="../packages/deepstream.html" /> 
+    <link rel="next" title="GPU Performance Evaluation" href="common/gpu_performance/index.html" />
+    <link rel="prev" title="Mounting FileSystem From NVMe M.2 SSD" href="mount_on_external_storage/mounting_nvme.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,9 +87,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../quick_start/index.html">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../accessory/index.html">Accessory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../packages/index.html">The Packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Usage</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced Usage</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mount_on_external_storage/index.html">Mount rootfs on External Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="canbus.html">How to use CAN bus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">How to use CAN bus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-pinout">Hardware Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test">Test</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="common/gpu_performance/index.html">GPU Performance Evaluation</a></li>
 </ul>
 </li>
@@ -144,13 +149,15 @@
         
           <li><a href="../../index.html">ROScube-Pico series</a> &raquo;</li>
         
-      <li>Advanced Usage</li>
+          <li><a href="index.html">Advanced Usage</a> &raquo;</li>
+        
+      <li>How to use CAN bus</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/roscube-pico/nvidia/advanced/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/roscube-pico/nvidia/advanced/canbus.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,16 +170,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="advanced-usage">
-<h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
-<p>The section includes some advanced function of ADLINK’s NVIDIA platform.</p>
-<p><strong>Table of Contents:</strong></p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="mount_on_external_storage/index.html">Mount rootfs on External Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="canbus.html">How to use CAN bus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/gpu_performance/index.html">GPU Performance Evaluation</a></li>
+  <div class="section" id="how-to-use-can-bus">
+<h1>How to use CAN bus<a class="headerlink" href="#how-to-use-can-bus" title="Permalink to this headline">¶</a></h1>
+<p>The tutorial will guide you how to use CAN bus on NVIDIA Platform.</p>
+<p>Supported Model:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ROScube-X series</p></li>
+<li><p>ROScube-Pico-NX series</p></li>
 </ul>
+</div></blockquote>
+<div class="section" id="hardware-pinout">
+<h2>Hardware Pinout<a class="headerlink" href="#hardware-pinout" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For ROScube-X series</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/pinout-x1.png"><img alt="../../../_images/pinout-x1.png" class="align-center" src="../../../_images/pinout-x1.png" style="width: 50%;" /></a>
+<ul class="simple">
+<li><p>For ROScube-Pico-NX series</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/pinout-pico1.png"><img alt="../../../_images/pinout-pico1.png" class="align-center" src="../../../_images/pinout-pico1.png" style="width: 50%;" /></a>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Make the system update</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt upgrade
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Configure the bitrate for can0</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ip link <span class="nb">set</span> can0 <span class="nb">type</span> can bitrate <span class="m">1000000</span>
+</pre></div>
+</div>
+<p>In this command, <strong>bitrate</strong> can be any valid CAN bitrate for stand CAN.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">125000(125 Kbps), 250000(250 Kbps), 500000(500 Kbps) and 1000000(1Mbps) are supported bitrates for Tegra MTTCAN driver.</div>
+<div class="line">Any other bitrate is not validated on Tegra MTTCAN driver.</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Turn on can0</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ip link <span class="nb">set</span> can0 up
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code>, then you should see can0</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ifconfig1.png"><img alt="../../../_images/ifconfig1.png" class="align-center" src="../../../_images/ifconfig1.png" style="width: 50%;" /></a>
+</div>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>To send CAN bus data out of can0:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>candump can0 -t A
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>To receive CAN bus data from can0:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cansend can0 <span class="m">123</span><span class="c1">#1122334455667788</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -184,10 +250,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mount_on_external_storage/index.html" class="btn btn-neutral float-right" title="Mount rootfs on External Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common/gpu_performance/index.html" class="btn btn-neutral float-right" title="GPU Performance Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../packages/deepstream.html" class="btn btn-neutral float-left" title="DeepStream SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mount_on_external_storage/mounting_nvme.html" class="btn btn-neutral float-left" title="Mounting FileSystem From NVMe M.2 SSD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
