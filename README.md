@@ -13,8 +13,23 @@ python3 -m pip install -r requirements.txt
 python3 -m pip install sphinx sphinx_rtd_theme
 ```
 
-* Test the website
+## Test the website
 
 ```bash
 make html
+```
+
+## Test the pdf
+
+* Install necessary packages
+
+```bash
+sudo app install latexmk
+sudo apt install texlive-latex-extra
+```
+
+* Generate pdf
+
+```bash
+make latexpdf
 ```
