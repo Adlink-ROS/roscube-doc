@@ -1,6 +1,6 @@
 .. _nmenu_usage:
 
-Usgae
+Usage
 #####
 
 Options
