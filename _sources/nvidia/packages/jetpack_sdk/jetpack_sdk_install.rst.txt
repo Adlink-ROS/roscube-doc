@@ -16,6 +16,7 @@ sion coresponding to L4T version.
     sudo apt install nvidia-l4t-jetson-multimedia-api
 
 .. warning:: 
+
     | It's **not suggested** to install ``nvidia-jetpack`` directly, because nvidia-jetpack is a meta package which will install **all JetPack SDK** compoments which occupy **8GB**.
     | You can only install ``particular`` JetPack SDK compoment.
 

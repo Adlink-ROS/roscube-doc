@@ -31,10 +31,10 @@ Typically, if you want to use FSYNC in RQX-58G, you need to follow the procedure
 1. Frame Sync Configuration
 ---------------------------   
 
-Different vendor's camera might have differentt way to configure free-run mode or frame sync mode.
+Different vendor's camera might have different way to configure free-run mode or frame sync mode.
 
 For example,ADLINK provided **Leopard AR0233 GMSL2** camera driver has a kernel module's parameter to control all cameras are in free-run mode or fsync mode. 
-(``/sys/module/leopard-ar0233/paramters/trigger_mode``)
+(``/sys/module/leopard_ar0233/paramters/trigger_mode``)
 
     * 0 -> Free Run mode
     * 1 -> Frame Sync mode
@@ -44,24 +44,29 @@ To see the ``trigger_mode``  by following terminal commands:
 .. code::
 
     su root
-    cat /sys/module/leopard-ar0233/parameters/trigger_mode
+    cat /sys/module/leopard_ar0233/parameters/trigger_mode
 
 To change the ``trigger_mode`` by following terminal commands:
 
 .. code::
 
     su root
-    echo <mode> >> /sys/module/leopard-ar0233/parameters/trigger_mode
-    cat /sys/module/leopard-ar0233/parameters/trigger_mode
+    echo <mode> > /sys/module/leopard_ar0233/parameters/trigger_mode
+    cat /sys/module/leopard_ar0233/parameters/trigger_mode
 
 .. image:: images/ar0233-trigger-mode.png
   :width: 80%
   :align: center
 
-
 .. note::
 
     If value is **0**, which means all AR0233 cameras are in free run-mode, if value is **1**, all AR0233 cameras are in frame sync mode.
+
+Also need to modify i2c register to enable sync mode:
+
+.. code::
+
+    i2cset -f -y 2 0x66 0x04 0xff
 
 2. Trigger Frames by external I/O
 ---------------------------------
@@ -187,3 +192,7 @@ Example 2:
     gpio_1.write(0)
     gpio_2.write(0)
     time.sleep(wait_idle)
+
+.. note::
+
+    You should trigger the frame first before running camera streaming.
