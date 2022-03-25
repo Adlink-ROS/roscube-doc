@@ -199,7 +199,8 @@
 <div class="section" id="frame-sync-configuration">
 <h2>1. Frame Sync Configuration<a class="headerlink" href="#frame-sync-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Different vendor’s camera might have different way to configure free-run mode or frame sync mode.</p>
-<p>For example,ADLINK provided <strong>Leopard AR0233 GMSL2</strong> camera driver has a kernel module’s parameter to control all cameras are in free-run mode or fsync mode.
+<p>For example, ADLINK provides <strong>Leopard AR0233 GMSL2</strong> camera driver,
+which has a kernel module’s parameter to control whether all cameras are in free-run mode or fsync mode.
 (<code class="docutils literal notranslate"><span class="pre">/sys/module/leopard_ar0233/paramters/trigger_mode</span></code>)</p>
 <blockquote>
 <div><ul class="simple">
@@ -207,32 +208,33 @@
 <li><p>1 -&gt; Frame Sync mode</p></li>
 </ul>
 </div></blockquote>
-<p>To see the <code class="docutils literal notranslate"><span class="pre">trigger_mode</span></code>  by following terminal commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="n">root</span>
-<span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">module</span><span class="o">/</span><span class="n">leopard_ar0233</span><span class="o">/</span><span class="n">parameters</span><span class="o">/</span><span class="n">trigger_mode</span>
+<p>To see the <code class="docutils literal notranslate"><span class="pre">trigger_mode</span></code> by following terminal commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su root
+cat /sys/module/leopard_ar0233/parameters/trigger_mode
 </pre></div>
 </div>
 <p>To change the <code class="docutils literal notranslate"><span class="pre">trigger_mode</span></code> by following terminal commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="n">root</span>
-<span class="n">echo</span> <span class="o">&lt;</span><span class="n">mode</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">module</span><span class="o">/</span><span class="n">leopard_ar0233</span><span class="o">/</span><span class="n">parameters</span><span class="o">/</span><span class="n">trigger_mode</span>
-<span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">module</span><span class="o">/</span><span class="n">leopard_ar0233</span><span class="o">/</span><span class="n">parameters</span><span class="o">/</span><span class="n">trigger_mode</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su root
+<span class="c1"># If you want Frame Sync mode</span>
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/module/leopard_ar0233/parameters/trigger_mode
+i2cset -f -y <span class="m">2</span> 0x66 0x04 0xff
+<span class="c1"># If you want Free Run mode</span>
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/module/leopard_ar0233/parameters/trigger_mode
+i2cset -f -y <span class="m">2</span> 0x66 0x04 0xf0
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/ar0233-trigger-mode.png"><img alt="../../_images/ar0233-trigger-mode.png" class="align-center" src="../../_images/ar0233-trigger-mode.png" style="width: 80%;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If value is <strong>0</strong>, which means all AR0233 cameras are in free run-mode, if value is <strong>1</strong>, all AR0233 cameras are in frame sync mode.</p>
-</div>
-<p>Also need to modify i2c register to enable sync mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i2cset</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">y</span> <span class="mi">2</span> <span class="mh">0x66</span> <span class="mh">0x04</span> <span class="mh">0xff</span>
-</pre></div>
+<p>Value <strong>0</strong> means all AR0233 cameras are in free run mode,
+while value <strong>1</strong> means AR0233 cameras are in frame sync mode.</p>
 </div>
 </div>
 <div class="section" id="trigger-frames-by-external-i-o">
 <h2>2. Trigger Frames by external I/O<a class="headerlink" href="#trigger-frames-by-external-i-o" title="Permalink to this headline">¶</a></h2>
 <p>Now we can use external I/O library to control FSYNC frequence. ADLINK provides a I/O library called <strong>Neuron Library</strong>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">neuron</span><span class="o">-</span><span class="n">library</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install neuron-library
 </pre></div>
 </div>
 <p>Every deserializer MAX9296 is mapped to a GPIO from Xavier.</p>
@@ -274,7 +276,7 @@
 <div class="line">All 8 AR0233 camers will output 10FPS.</div>
 </div>
 <a class="reference internal image-reference" href="../../_images/fsync-ar0233-10fps.png"><img alt="../../_images/fsync-ar0233-10fps.png" class="align-center" src="../../_images/fsync-ar0233-10fps.png" style="width: 80%;" /></a>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/python3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/python3</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/opt/adlink/neuron-sdk/neuron-library/lib/python3.6/dist-packages&quot;</span><span class="p">)</span>
@@ -318,7 +320,7 @@
 <div class="line">Camera 1, 2, 3, 4 ouputs 10HZ and 5, 6, 7, 8 outputs 20Hz.</div>
 </div>
 <a class="reference internal image-reference" href="../../_images/fsync-ar0233-20fps.png"><img alt="../../_images/fsync-ar0233-20fps.png" class="align-center" src="../../_images/fsync-ar0233-20fps.png" style="width: 80%;" /></a>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/python3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/python3</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/opt/adlink/neuron-sdk/neuron-library/lib/python3.6/dist-packages&quot;</span><span class="p">)</span>

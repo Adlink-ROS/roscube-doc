@@ -181,18 +181,18 @@
 <div class="section" id="install-camera-driver">
 <h2>1. Install Camera Driver.<a class="headerlink" href="#install-camera-driver" title="Permalink to this headline">¶</a></h2>
 <p>To install <strong>Leopard AR0233 GMSL</strong> camera, please by following terminal commands below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
 <span class="c1"># Remove lagecy leopard ar0233 kernel module.</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">remove</span> <span class="o">--</span><span class="n">purge</span> <span class="n">leopard</span><span class="o">-</span><span class="n">ar0233</span><span class="o">-</span><span class="n">gmsl</span><span class="o">-</span><span class="n">kmod</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">remove</span> <span class="o">--</span><span class="n">purge</span> <span class="n">rqx58g</span><span class="o">-</span><span class="n">ioboard</span><span class="o">-</span><span class="n">gmsl</span><span class="o">-</span><span class="n">kmod</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">leopard</span><span class="o">-</span><span class="n">ar0233</span><span class="o">-</span><span class="n">gmsl</span>
+sudo apt remove --purge leopard-ar0233-gmsl-kmod
+sudo apt remove --purge rqx58g-ioboard-gmsl-kmod
+sudo apt install leopard-ar0233-gmsl
 </pre></div>
 </div>
 </div>
 <div class="section" id="inspect-camera-driver">
 <h2>2. Inspect Camera Driver.<a class="headerlink" href="#inspect-camera-driver" title="Permalink to this headline">¶</a></h2>
 <p>To inspect your available camera device tree setting after installing, please use the following terminal command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">nvidia</span><span class="o">/</span><span class="n">jetson</span><span class="o">-</span><span class="n">io</span><span class="o">/</span><span class="n">config</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">hardware</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">l</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo /opt/nvidia/jetson-io/config-by-hardware.py -l
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/config-hardware-list.png"><img alt="../../_images/config-hardware-list.png" class="align-center" src="../../_images/config-hardware-list.png" style="width: 80%;" /></a>
@@ -210,16 +210,16 @@ If there are two or more, please remove them which you don’t use.</div>
 <p>To apply <strong>Leopard AR0233 device tree</strong> settings to all camera channels, please use the following terminal command:</p>
 <p><strong>For Jetpack 4.5</strong>, use the following</p>
 <p>Download the patched <a class="reference download internal" download="" href="../../_downloads/4518ba218309b08296f7793594d3393d/libgstnvarguscamerasrc.so"><code class="xref download docutils literal notranslate"><span class="pre">libgstnvarguscamerasrc.so</span></code></a> and replace this file with the original one.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aarch64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">gstreamer</span><span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">libgstnvarguscamerasrc</span><span class="o">.</span><span class="n">so</span>
-<span class="n">sudo</span> <span class="n">mv</span> <span class="n">libgstnvarguscamerasrc</span><span class="o">.</span><span class="n">so</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aarch64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">gstreamer</span><span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">libgstnvarguscamerasrc</span><span class="o">.</span><span class="n">so</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rm /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
+sudo mv libgstnvarguscamerasrc.so /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
 </pre></div>
 </div>
 <p>Then, apply device tree into your current system.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">nvidia</span><span class="o">/</span><span class="n">jetson</span><span class="o">-</span><span class="n">io</span><span class="o">/</span><span class="n">config</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">hardware</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;Leopard AR0233 GMSL2 Camera Device Tree Overlay&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo /opt/nvidia/jetson-io/config-by-hardware.py -n <span class="s1">&#39;Leopard AR0233 GMSL2 Camera Device Tree Overlay&#39;</span>
 </pre></div>
 </div>
 <p><strong>For Jetpack 4.6</strong>, use the following</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">nvidia</span><span class="o">/</span><span class="n">jetson</span><span class="o">-</span><span class="n">io</span><span class="o">/</span><span class="n">config</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">hardware</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">n</span> <span class="mi">2</span><span class="o">=</span><span class="s1">&#39;Leopard AR0233 GMSL2 Camera Device Tree Overlay&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo /opt/nvidia/jetson-io/config-by-hardware.py -n <span class="nv">2</span><span class="o">=</span><span class="s1">&#39;Leopard AR0233 GMSL2 Camera Device Tree Overlay&#39;</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/config-hardware-name.png"><img alt="../../_images/config-hardware-name.png" class="align-center" src="../../_images/config-hardware-name.png" style="width: 80%;" /></a>
@@ -232,7 +232,7 @@ If there are two or more, please remove them which you don’t use.</div>
 <h2>4. Check Camera.<a class="headerlink" href="#check-camera" title="Permalink to this headline">¶</a></h2>
 <p>After rebooting system, you can check if the cameras are available.</p>
 <p>Please use the following terminal command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">gmsl</span><span class="o">/*</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls /dev/gmsl/*
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/dev-video.png"><img alt="../../_images/dev-video.png" class="align-center" src="../../_images/dev-video.png" style="width: 80%;" /></a>
