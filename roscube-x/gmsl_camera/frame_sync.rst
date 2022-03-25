@@ -33,26 +33,31 @@ Typically, if you want to use FSYNC in RQX-58G, you need to follow the procedure
 
 Different vendor's camera might have different way to configure free-run mode or frame sync mode.
 
-For example,ADLINK provided **Leopard AR0233 GMSL2** camera driver has a kernel module's parameter to control all cameras are in free-run mode or fsync mode. 
+For example, ADLINK provides **Leopard AR0233 GMSL2** camera driver, 
+which has a kernel module's parameter to control whether all cameras are in free-run mode or fsync mode. 
 (``/sys/module/leopard_ar0233/paramters/trigger_mode``)
 
     * 0 -> Free Run mode
     * 1 -> Frame Sync mode
 
-To see the ``trigger_mode``  by following terminal commands:
+To see the ``trigger_mode`` by following terminal commands:
 
-.. code::
+.. code:: bash
 
     su root
     cat /sys/module/leopard_ar0233/parameters/trigger_mode
 
 To change the ``trigger_mode`` by following terminal commands:
 
-.. code::
+.. code:: bash
 
     su root
-    echo <mode> > /sys/module/leopard_ar0233/parameters/trigger_mode
-    cat /sys/module/leopard_ar0233/parameters/trigger_mode
+    # If you want Frame Sync mode
+    echo 1 > /sys/module/leopard_ar0233/parameters/trigger_mode
+    i2cset -f -y 2 0x66 0x04 0xff
+    # If you want Free Run mode
+    echo 0 > /sys/module/leopard_ar0233/parameters/trigger_mode
+    i2cset -f -y 2 0x66 0x04 0xf0
 
 .. image:: images/ar0233-trigger-mode.png
   :width: 80%
@@ -60,20 +65,15 @@ To change the ``trigger_mode`` by following terminal commands:
 
 .. note::
 
-    If value is **0**, which means all AR0233 cameras are in free run-mode, if value is **1**, all AR0233 cameras are in frame sync mode.
-
-Also need to modify i2c register to enable sync mode:
-
-.. code::
-
-    i2cset -f -y 2 0x66 0x04 0xff
+    Value **0** means all AR0233 cameras are in free run mode,
+    while value **1** means AR0233 cameras are in frame sync mode.
 
 2. Trigger Frames by external I/O
 ---------------------------------
 
 Now we can use external I/O library to control FSYNC frequence. ADLINK provides a I/O library called **Neuron Library**.
 
-.. code::
+.. code:: bash
 
     sudo apt update
     sudo apt install neuron-library
@@ -103,7 +103,7 @@ Example 1:
   :width: 80%
   :align: center
 
-.. code::
+.. code:: python
     
   #!/bin/python3
 
@@ -150,7 +150,7 @@ Example 2:
   :width: 80%
   :align: center
 
-.. code::
+.. code:: python
   
   #!/bin/python3
 

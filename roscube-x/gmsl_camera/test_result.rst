@@ -34,13 +34,13 @@ Besure you have specify **sensor-id=0** on the following command.
 
 i. Open a terminal and type command to open ``camera 1's video`` streaming.
 
-.. code::
+.. code:: bash
 
     gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
 
 ii. Open **another** terminal and type command to ``open camera 2's video`` streaming.
 
-.. code::
+.. code:: bash
 
     gst-launch-1.0 nvarguscamerasrc sensor-id=1 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
 
