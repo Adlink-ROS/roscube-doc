@@ -68,7 +68,6 @@ Install the dirver which you want in drvier list:
 
     sudo apt install nvidia-driver-<version>
 
-
 .. warning:: 
 
     You can install only one driver at the same time.

@@ -14,7 +14,7 @@ And it can only download form **ADLINK ROScube's APT repository**.
 
 To install **Leopard AR0233 GMSL** camera, please by following terminal commands below:
 
-.. code::
+.. code:: bash
     
     sudo apt update
     # Remove lagecy leopard ar0233 kernel module.
@@ -27,7 +27,7 @@ To install **Leopard AR0233 GMSL** camera, please by following terminal commands
 
 To inspect your available camera device tree setting after installing, please use the following terminal command:
 
-.. code::
+.. code:: bash
 
     sudo /opt/nvidia/jetson-io/config-by-hardware.py -l
 
@@ -36,6 +36,7 @@ To inspect your available camera device tree setting after installing, please us
   :align: center
 
 .. warning::
+
     | It can only install one cammera's driver at the same time.
       If there are two or more, please remove them which you don't use.
     | To remove unused camera driver, please use ``sudo apt remove --purge <camera driver>``
@@ -49,20 +50,20 @@ To apply **Leopard AR0233 device tree** settings to all camera channels, please 
 
 Download the patched :download:`libgstnvarguscamerasrc.so <file/libgstnvarguscamerasrc.so>` and replace this file with the original one.
 
-.. code:: 
+.. code:: bash
 
     sudo rm /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
     sudo mv libgstnvarguscamerasrc.so /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
 
 Then, apply device tree into your current system.
 
-.. code::
+.. code:: bash
 
     sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 'Leopard AR0233 GMSL2 Camera Device Tree Overlay'
 
 **For Jetpack 4.6**, use the following
 
-.. code::
+.. code:: bash
 
     sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2='Leopard AR0233 GMSL2 Camera Device Tree Overlay'
 
@@ -81,7 +82,7 @@ After rebooting system, you can check if the cameras are available.
 
 Please use the following terminal command:
 
-.. code::
+.. code:: bash
 
     ls /dev/gmsl/*
 
@@ -91,5 +92,6 @@ Please use the following terminal command:
 
 
 .. warning::
+
     | If it can't show any video devices, make sure cameras are connected.
     | And check the error message by ``dmesg | egrep ar0233`` in terminal command.
