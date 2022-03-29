@@ -11,7 +11,6 @@ Show the usage of application in NVIDIA platform.
    :maxdepth: 1
 
    jetpack_sdk/index.rst
-   driver_packages/index.rst
    deepstream.rst
 .. TODO: Will be added in the future
    container.rst

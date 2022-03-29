@@ -6,12 +6,18 @@ Customize file system on **Host PC**.
 1. Prepare Filesystem
 ^^^^^^^^^^^^^^^^^^^^^
 
-Driver package allows user to customize their filesystem. Driver package provides a script (create_image.sh) to create a board specific image base on several rootfs selection, here's what we support.
+| Driver package allows users to customize their filesystem. 
+| Driver package provides a script (create_image.sh) to create a board specific image base on several rootfs selection, here's what we support.
 
-1. Download Rootfs Binaries
+So you need to prepare these items:
 
+    * Driver package
+    * Rootfs Binaries
 
-**nvidia_sample_rootfs - Nvidia provided sample file system.**
+Download Rootfs Binaries
+------------------------
+
+The file system we use here is **NVIDIA Sample Filesystem**.
 
 Please download the correct L4T version from `NVIDIA Developer <https://developer.nvidia.com/embedded/linux-tegra-archive>`_.
 
@@ -22,15 +28,8 @@ Please download the correct L4T version from `NVIDIA Developer <https://develope
   :width: 50%
   :align: center
 
-
-.. note:: 
-
-    Before customizing the rootfs, all these rootfs binaries should be downloaded from their official website.
-    
-    ADLINK doesn't provide.
-
-2. Create Image
-
+Create Image
+------------
 
 After you download rootfs binary successfully, put the binary under the **driver package folder**. 
 
@@ -47,8 +46,7 @@ Then, run ``./create_image.sh`` to create image.
 
 Users can chroot into filesystem, and install packages or put files to filesystem. That allows user to put their software and configurations into rootfs.
 
-1. Mount host environment to filesystem.
- 
+1. Mount host environment to filesystem. 
 
 .. code-block:: bash
 
@@ -64,8 +62,7 @@ Users can chroot into filesystem, and install packages or put files to filesyste
     sudo mv etc/resolv.conf etc/resolv.conf.saved
     sudo mv etc/resolv.conf.host etc/resolv.conf
 
-1. Now you can chroot into filesystem and modify filesystem.
-
+2. Now you can chroot into filesystem and modify filesystem.
 
 .. code-block:: bash
     

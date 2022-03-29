@@ -1,11 +1,11 @@
-Back Up and Restore
-###################
+Backup and Restore
+##################
 
-The tutorial will guide you how to back up and restore system image.
+The tutorial will guide you how to backup and restore system image.
 
 .. note:: 
 
-    The target machine must be connected to **Host PC** over USB and entered into **recovery mode**.
+    The target machine must be connected to your **Host PC** over USB and entered into **recovery mode**.
 
 +--------------------+------------+
 |Model               |Target Name |
@@ -35,7 +35,7 @@ This command actually creates two image files: ``backup.img`` and ``backup.img.r
 2. Copy the backup image to flashing directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-copy the .raw file which contains complete image from source device. 
+copy the ``backup.img`` file to the bootloader folder. 
 
 .. code-block:: bash
     
@@ -44,7 +44,7 @@ copy the .raw file which contains complete image from source device.
 3. Restoring the Image
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The recommended way to restore multiple units with different serial numbers is to save the image above as "system.img" and use the head L4T flashing script, flash.sh, with the -r option (to reuse your backed-up system.img without rebuilding the vanilla image from scratch): 
+The recommended way to restore multiple units with different serial numbers is to save the image above as "system.img" and use the head L4T flashing script, ``flash.sh``, with the -r option (to reuse your backed-up system.img without rebuilding the vanilla image from scratch): 
 
 .. code-block:: bash
 

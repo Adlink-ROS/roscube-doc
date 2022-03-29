@@ -1,7 +1,7 @@
 Driver Packages Usage
 #####################
 
-The tutorial will guide you how to customize file system on **Host PC**.
+The tutorial will guide you how to customize the BSP file system on your **Host PC**.
 
 Before customizing file system to ROScube, you should prepare the following items:
 
@@ -14,20 +14,17 @@ Driver Package is a package contains several assets that runs on host computer, 
 
     * Customize system file system.
     * Flash system image to target machine.
-    * System image back up.
+    * System image backup and restore.
     * Create a custom mfi image.
 
-| User can modify their rootfs on their host computer before flashing the image to target machine.
-| You could use tar tool to unarchive driver_package.
+User can modify their rootfs on their host computer before flashing the image to target machine.
 
-.. code-block:: bash
-    
-    tar xvf <ROScube device>-Driver-Package.tar.gz
+**Table of Contents:**
 
 .. toctree::
    :maxdepth: 1
 
+   driver_packages.rst
    customize_filesystem.rst
    flash_system.rst
-   back_up.rst
-
+   backup_restore.rst
