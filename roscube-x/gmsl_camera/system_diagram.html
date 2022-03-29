@@ -89,7 +89,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">GMSL 2 Camera</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">System Diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="camera_driver.html">Camera Driver Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="test_result.html">Test Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera_usage.html">Camera Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="frame_sync.html">Frame Synchronization</a></li>
 </ul>
 </li>
@@ -170,8 +170,8 @@
   <div class="section" id="system-diagram">
 <span id="id1"></span><h1>System Diagram<a class="headerlink" href="#system-diagram" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="../../_images/system-diagram.png"><img alt="../../_images/system-diagram.png" class="align-center" src="../../_images/system-diagram.png" style="width: 80%;" /></a>
-<p>Depends on camera type, some of cameras equipe with <strong>ISP</strong> and some of not.</p>
-<p>User need to identify if their camera has a internal <strong>ISP</strong> or not.</p>
+<p>Depends on camera type, some cameras equip with <strong>ISP</strong> and some do not.</p>
+<p>Users need to identify if their camera has an internal <strong>ISP</strong> or not.</p>
 <p>If yes, user can use <strong>V4L2 framework</strong> to access the camera’s RAW image.</p>
 <p>If camera doesn’t have a ISP inside their camera, they need to use <strong>Argus Framework</strong> which is provided by NVIDIA to access the camera’s RAW image.</p>
 </div>

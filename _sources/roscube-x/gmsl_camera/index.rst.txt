@@ -34,5 +34,5 @@ The following table is the supported GMSL 2 camera list of RQX-58G.
 
    system_diagram.rst
    camera_driver.rst
-   test_result.rst
+   camera_usage.rst
    frame_sync.rst

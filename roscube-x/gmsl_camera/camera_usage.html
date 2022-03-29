@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Test Result &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Camera Usage &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -89,8 +89,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">GMSL 2 Camera</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="system_diagram.html">System Diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="camera_driver.html">Camera Driver Installation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Test Result</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#video-frame-preview-by-gstreamer">Video Frame Preview by GStreamer.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Camera Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nvidia-argus">NVIDIA Argus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#v4l2">V4L2</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="frame_sync.html">Frame Synchronization</a></li>
@@ -151,13 +152,13 @@
         
           <li><a href="index.html">GMSL 2 Camera</a> &raquo;</li>
         
-      <li>Test Result</li>
+      <li>Camera Usage</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/roscube-x/gmsl_camera/test_result.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/roscube-x/gmsl_camera/camera_usage.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,13 +171,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="test-result">
-<span id="id1"></span><h1>Test Result<a class="headerlink" href="#test-result" title="Permalink to this headline">¶</a></h1>
-<p>Cameras without ISP can use <strong>Argus API</strong> to preview the camera’s video streaming.</p>
-<p>Or you can use <strong>GStreamer NVArgusCameraSrc plugin</strong> to preview the video streaming.</p>
-<div class="section" id="video-frame-preview-by-gstreamer">
-<h2>Video Frame Preview by GStreamer.<a class="headerlink" href="#video-frame-preview-by-gstreamer" title="Permalink to this headline">¶</a></h2>
-<p>Besure you have specify <strong>sensor-id=0</strong> on the following command.</p>
+  <div class="section" id="camera-usage">
+<span id="id1"></span><h1>Camera Usage<a class="headerlink" href="#camera-usage" title="Permalink to this headline">¶</a></h1>
+<p>Different video frameworks have different methods to run cameras.
+You should check which video framework your camera is and select the right method.</p>
+<p>Here we show how to run cameras with gstreamer plugin based on NVIDIA Argus or V4L2.</p>
+<div class="section" id="nvidia-argus">
+<h2>NVIDIA Argus<a class="headerlink" href="#nvidia-argus" title="Permalink to this headline">¶</a></h2>
+<p>Cameras without ISP can use <strong>Argus API</strong> to preview the camera’s video streaming,
+or you can use <strong>GStreamer NVArgusCameraSrc plugin</strong> to preview the video streaming.</p>
+<p>Make sure you have modified <strong>sensor-id=0</strong> on the following command.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 58%" />
@@ -229,6 +233,26 @@
 <a class="reference internal image-reference" href="../../_images/gst-test.png"><img alt="../../_images/gst-test.png" class="align-center" src="../../_images/gst-test.png" style="width: 80%;" /></a>
 <p>If successful, you will see two windows from different cameras, like below.</p>
 <a class="reference internal image-reference" href="../../_images/gst-preview.png"><img alt="../../_images/gst-preview.png" class="align-center" src="../../_images/gst-preview.png" style="width: 80%;" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you find that Argus plugin can’t operate well, you can restart nvargus-daemon.
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvargus-daemon.service</span></code></p>
+</div>
+</div>
+<div class="section" id="v4l2">
+<h2>V4L2<a class="headerlink" href="#v4l2" title="Permalink to this headline">¶</a></h2>
+<p>To use V4L2, you can read video device under <code class="docutils literal notranslate"><span class="pre">/dev/</span></code> directly.
+The camera will be listed like <code class="docutils literal notranslate"><span class="pre">/dev/videoX</span></code>, while X is from 0-7.
+You can also read the camera under <code class="docutils literal notranslate"><span class="pre">/dev/gmsl/*</span></code>.
+Both two ways are available.</p>
+<p>To read camera 1 by gstreamer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 v4l2src <span class="nv">device</span><span class="o">=</span>/dev/video0 ! videoconvert ! videoscale ! video/x-raw,format<span class="o">=</span>UYVY ! queue ! videoconvert ! ximagesink <span class="nv">sync</span><span class="o">=</span>no
+</pre></div>
+</div>
+<p>To read camera 1 by v4l2 tools</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>v4l2-ctl -d /dev/video0 --set-fmt-video<span class="o">=</span><span class="nv">width</span><span class="o">=</span><span class="m">1920</span>,height<span class="o">=</span><span class="m">1080</span>,pixelformat<span class="o">=</span>UYVY --stream-mmap<span class="o">=</span><span class="m">3</span> --stream-count<span class="o">=</span><span class="m">600</span>
+</pre></div>
+</div>
 </div>
 </div>
 
