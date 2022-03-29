@@ -52,7 +52,7 @@ System Level ROScube Pico Flashing Image
 3. Prepare released image on **Host PC** 
 ------------------------------------------
 
-Assuming image's file name is ``mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2``. Un-archive this file first.
+Assuming image's file name is ``mfi_npn2_3.1.2.tbz2``. Un-archive this file first.
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ Then, use BSP internal tool, ``nvmflash.sh`` to run the flashing procedure. **Pl
 
 .. code-block:: bash
 
-    cd mfi_rqp_nx
+    cd mfi_npn2
     sudo ./nvmflash.sh 
 
 .. note::
