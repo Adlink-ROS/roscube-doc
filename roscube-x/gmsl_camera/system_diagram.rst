@@ -7,9 +7,9 @@ System Diagram
   :width: 80%
   :align: center
 
-Depends on camera type, some of cameras equipe with **ISP** and some of not. 
+Depends on camera type, some cameras equip with **ISP** and some do not. 
 
-User need to identify if their camera has a internal **ISP** or not. 
+Users need to identify if their camera has an internal **ISP** or not. 
 
 If yes, user can use **V4L2 framework** to access the camera's RAW image. 
 
