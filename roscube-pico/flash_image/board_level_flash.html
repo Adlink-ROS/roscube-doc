@@ -206,12 +206,12 @@
 </div>
 <div class="section" id="prepare-released-image-on-host-pc">
 <h2>3. Prepare released image on <strong>Host PC</strong><a class="headerlink" href="#prepare-released-image-on-host-pc" title="Permalink to this headline">¶</a></h2>
-<p>Assuming image’s file name is <code class="docutils literal notranslate"><span class="pre">mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2</span></code>. Un-archive this file first.</p>
+<p>Assuming image’s file name is <code class="docutils literal notranslate"><span class="pre">mfi_npn2_3.1.2.tbz2</span></code>. Un-archive this file first.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvf mfi_npn2_nvidia-sample-rootfs_L4T-32-4-3-Kernel-1-0-6.tbz2
 </pre></div>
 </div>
 <p>Then, use BSP internal tool, <code class="docutils literal notranslate"><span class="pre">nvmflash.sh</span></code> to run the flashing procedure. <strong>Please make sure your Host PC has attached to ROScube Pico</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mfi_rqp_nx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mfi_npn2
 sudo ./nvmflash.sh
 </pre></div>
 </div>

@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customize System FileSystem &mdash; roscube-doc 0.9.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Flash System Image to Target Machine" href="flash_system.html" />
+    <link rel="prev" title="Download Driver Package" href="driver_packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> roscube-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../roscube-x/index.html">ROScube-X series</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">ROScube-Pico series</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../flash_image/index.html">How to flash image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_start/index.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../accessory/index.html">Accessory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../packages/index.html">The Packages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced Usage</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../mount_on_external_storage/index.html">Mount rootfs on External Storage</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Driver Packages Usage</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver_packages.html">Download Driver Package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Customize System FileSystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flash_system.html">Flash System Image to Target Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backup_restore.html">Backup and Restore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../canbus.html">How to use CAN bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/gpu_performance/index.html">GPU Performance Evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../roscube-i/index.html">ROScube-I series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../neuronsdk/index.html">Neuron SDK</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">roscube-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">ROScube-Pico series</a> &raquo;</li>
+        
+          <li><a href="../index.html">Advanced Usage</a> &raquo;</li>
+        
+          <li><a href="index.html">Driver Packages Usage</a> &raquo;</li>
+        
+      <li>Customize System FileSystem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/roscube-pico/nvidia/advanced/driver_packages/customize_filesystem.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customize-system-filesystem">
+<h1>Customize System FileSystem<a class="headerlink" href="#customize-system-filesystem" title="Permalink to this headline">¶</a></h1>
+<p>Customize file system on <strong>Host PC</strong>.</p>
+<div class="section" id="prepare-filesystem">
+<h2>1. Prepare Filesystem<a class="headerlink" href="#prepare-filesystem" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Driver package allows users to customize their filesystem.</div>
+<div class="line">Driver package provides a script (create_image.sh) to create a board specific image base on several rootfs selection, here’s what we support.</div>
+</div>
+<p>So you need to prepare these items:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Driver package</p></li>
+<li><p>Rootfs Binaries</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="download-rootfs-binaries">
+<h3>Download Rootfs Binaries<a class="headerlink" href="#download-rootfs-binaries" title="Permalink to this headline">¶</a></h3>
+<p>The file system we use here is <strong>NVIDIA Sample Filesystem</strong>.</p>
+<p>Please download the correct L4T version from <a class="reference external" href="https://developer.nvidia.com/embedded/linux-tegra-archive">NVIDIA Developer</a>.</p>
+<div class="line-block">
+<div class="line">For example, if you are using ADLINK provided driver package 32.6.1, you should download from <a class="reference external" href="https://developer.nvidia.com/embedded/linux-tegra-r3261">Jetson Linux R32.6.1 Release Page</a>.</div>
+<div class="line">Download <code class="docutils literal notranslate"><span class="pre">Sample</span> <span class="pre">Root</span> <span class="pre">Filesystem</span></code> according to your <strong>ROScube device</strong>.</div>
+</div>
+<a class="reference internal image-reference" href="../../../../_images/L4T-driver1.png"><img alt="../../../../_images/L4T-driver1.png" class="align-center" src="../../../../_images/L4T-driver1.png" style="width: 50%;" /></a>
+</div>
+<div class="section" id="create-image">
+<h3>Create Image<a class="headerlink" href="#create-image" title="Permalink to this headline">¶</a></h3>
+<p>After you download rootfs binary successfully, put the binary under the <strong>driver package folder</strong>.</p>
+<p>Then, run <code class="docutils literal notranslate"><span class="pre">./create_image.sh</span></code> to create image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;driver package&gt;
+sudo ./create_image.sh nvidia_sample_rootfs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modify-filesystem-under-root">
+<h2>2. Modify Filesystem under root<a class="headerlink" href="#modify-filesystem-under-root" title="Permalink to this headline">¶</a></h2>
+<p>Users can chroot into filesystem, and install packages or put files to filesystem. That allows user to put their software and configurations into rootfs.</p>
+<ol class="arabic simple">
+<li><p>Mount host environment to filesystem.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;driver package&gt;
+<span class="nb">cd</span> rootfs
+sudo cp /usr/bin/qemu-aarch64-static usr/bin/
+sudo mount --bind /dev/ dev/
+sudo mount --bind /sys/ sys/
+sudo mount --bind /proc/ proc/
+
+<span class="c1"># Copy host environment dns settings.</span>
+sudo cp /etc/resolv.conf etc/resolv.conf.host
+sudo mv etc/resolv.conf etc/resolv.conf.saved
+sudo mv etc/resolv.conf.host etc/resolv.conf
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Now you can chroot into filesystem and modify filesystem.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using chroot</span>
+sudo <span class="nv">LC_ALL</span><span class="o">=</span>C <span class="nv">LANG</span><span class="o">=</span>C.UTF-8 chroot . /bin/bash
+
+apt update
+apt install wget vim
+
+<span class="c1"># Also you can install other packages which you want</span>
+apt install nvidia-jetpack
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Once you finish modification, you can exit chroot environment by pressing ctrl+D. Then, remove cache files, e.g. apt cache to save storage space.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exit chroot</span>
+<span class="nb">exit</span>
+
+sudo umount ./proc
+sudo umount ./sys
+sudo umount ./dev
+sudo rm usr/bin/qemu-aarch64-static
+
+<span class="c1"># Restore dns setting.</span>
+sudo rm etc/resolv.conf
+sudo mv etc/resolv.conf.saved etc/resolv.conf
+
+<span class="c1"># Remove caches and logging files.</span>
+
+sudo rm -rf var/lib/apt/lists/*
+sudo rm -rf dev/*
+sudo rm -rf var/log/*
+sudo rm -rf var/tmp/*
+sudo rm -rf var/cache/apt/archives/*.deb
+sudo rm -rf tmp/*
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flash_system.html" class="btn btn-neutral float-right" title="Flash System Image to Target Machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver_packages.html" class="btn btn-neutral float-left" title="Download Driver Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, ADLINK Autonomous Business Center
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
