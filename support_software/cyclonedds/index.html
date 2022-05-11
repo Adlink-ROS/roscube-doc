@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using Intel AC9260 WiFi Card &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Eclipse Cyclone DDS &mdash; roscube-doc 0.9.0 documentation</title>
   
 
   
@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Supported Software" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,12 +79,19 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-x/index.html">ROScube-X series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-pico/index.html">ROScube-Pico series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../roscube-i/index.html">ROScube-I series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../neuronsdk/index.html">Neuron SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../support_software/index.html">Supported Software</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Supported Software</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Eclipse Cyclone DDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build">Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -129,13 +137,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Using Intel AC9260 WiFi Card</li>
+          <li><a href="../index.html">Supported Software</a> &raquo;</li>
+        
+      <li>Eclipse Cyclone DDS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/nvidia/accessory/intel_ac9260.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/support_software/cyclonedds/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -148,27 +158,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="using-intel-ac9260-wifi-card">
-<h1>Using Intel AC9260 WiFi Card<a class="headerlink" href="#using-intel-ac9260-wifi-card" title="Permalink to this headline">¶</a></h1>
-<p>The tutorial will guide you how to use Intel AC9260 on ROScube.</p>
-<ol class="arabic simple">
-<li><p>Install the WiFi Card into ROScube</p></li>
-<li><p>Install <code class="docutils literal notranslate"><span class="pre">add-apt-repository</span></code></p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install software-properties-common
+  <div class="section" id="eclipse-cyclone-dds">
+<h1>Eclipse Cyclone DDS<a class="headerlink" href="#eclipse-cyclone-dds" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/eclipse-cyclonedds/cyclonedds">Eclipse Cyclone DDS</a> is open-source DDS implementation,
+which is contributed to Eclipse foundation by ADLINK initially.</p>
+<p>Cyclone DDS is used by a growing list of <a class="reference external" href="https://iot.eclipse.org/adopters/?#iot.cyclonedds">adopters</a>.
+It’s default DDS implementation of Autoware and tier-1 middleware of Robot Operating System (ROS 2).</p>
+<p>For more information, refer to <a class="reference external" href="https://cyclonedds.io/docs/">the Cyclone DDS documentation</a>.</p>
+<div class="section" id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>To keep the development environment cleaner, you can use <code class="docutils literal notranslate"><span class="pre">colcon</span></code> to build Cyclone DDS.</p>
+<ul class="simple">
+<li><p>Get source code from GitHub</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/cyclonedds_ws/src
+<span class="nb">cd</span> ~/cyclonedds_ws/src
+git clone https://github.com/eclipse-cyclonedds/cyclonedds.git
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Install Canonical backport driver</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:canonical-hwe-team/backport-iwlwifi
-sudo apt-get update
-sudo apt install backport-iwlwifi-dkms
+<ul class="simple">
+<li><p>Build</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/cyclonedds_ws
+colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DBUILD_EXAMPLES<span class="o">=</span>ON
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Reboot the system and you can use Intel AC9260 now.</p></li>
-</ol>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Build example code</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/cyclonedds_ws
+<span class="nb">source</span> install/local_setup.bash
+<span class="nb">cd</span> ~/workspace/dds_ws/install/cyclonedds/share/CycloneDDS/examples/helloworld
+cmake -Bbuild -H.
+cmake --build build
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run example publisher</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/workspace/dds_ws/install/cyclonedds/share/CycloneDDS/examples/helloworld/build
+./HelloworldPublisher
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run example subscriber</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/workspace/dds_ws/install/cyclonedds/share/CycloneDDS/examples/helloworld/build
+./HelloworldSubscriber
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -176,6 +218,13 @@ sudo apt install backport-iwlwifi-dkms
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Supported Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
