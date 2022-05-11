@@ -26,3 +26,4 @@ Please refer to different sections based on your platform.
    roscube-pico/index.rst
    roscube-i/index.rst
    neuronsdk/index.rst
+   support_software/index.rst

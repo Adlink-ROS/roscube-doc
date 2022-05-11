@@ -10,7 +10,6 @@ After modifying source file and pushing to GitHub, GitHub action will do the dep
 sudo apt install python3-pip
 # We need to pin docutils to 0.16.0 since https://github.com/sphinx-doc/sphinx/issues/9051
 python3 -m pip install -r requirements.txt
-python3 -m pip install sphinx sphinx_rtd_theme
 ```
 
 ## Test the website
