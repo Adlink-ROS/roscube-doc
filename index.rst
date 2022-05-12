@@ -27,3 +27,4 @@ Please refer to different sections based on your platform.
    roscube-i/index.rst
    neuronsdk/index.rst
    support_software/index.rst
+   scenario/index.rst
