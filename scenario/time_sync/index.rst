@@ -10,7 +10,7 @@ We use sensors to collect outside environment information.
 It's really important to analyze sensors data and make the right decision, like avoiding obstacles.
 
 However, each kind of sensor has its own charateristics.
-For example, lidars can detect obstacles precisely, while s can do object detection.
+For example, lidars can detect obstacles precisely, while cameras can do object detection.
 Therefore, doing sensor fusion of these sensors can have all the advantages and cover their disadvantages.
 
 To fuse data from different sensors with high quality,
