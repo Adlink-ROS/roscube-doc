@@ -1,5 +1,7 @@
+.. _cyclonedds:
+
 Eclipse Cyclone DDS
-###################
+===================
 
 `Eclipse Cyclone DDS <https://github.com/eclipse-cyclonedds/cyclonedds>`_ is open-source DDS implementation,
 which is contributed to Eclipse foundation by ADLINK initially.
