@@ -7,13 +7,15 @@ Setup environment
 Install ROS environment
 -----------------------
 
-We have provided the way how to isntall ROS enviroment, please click `here <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/installation.html#installation>`_.
+We have provided the way how to isntall ROS enviroment, please click `here <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_.
 
 .. note:: 
     
-    If you use NVIDA series platform (e.g. ROScube-X / ROScube Pico), suggest to **install ROS environment in container**.
+    **Install ROS environment in container**.
+
     Since NVIDIA platform BSP is Ubuntu 18.04, it's inconvenient to run ROS 2 foxy, which is the ROS LTS version.
-    Open Robotics only supports ROS 2 foxy on Ubuntu 20.04.
+    
+    Open Robotics only supports **ROS 2 foxy** on Ubuntu 20.04.
 
 Install necessary packages
 --------------------------

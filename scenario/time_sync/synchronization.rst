@@ -4,8 +4,8 @@ How to do synchronization
 
 We has provided a daemon to tigger camera with external signal for **Frame Synchronization**.
 
-* MTi 670/680 with SyncOut ⇒ Send 1 PPS
-* ROScube X with mraa ⇒ GPIO ⇒ Trigger ISR + Camera
+* MTi 670/680 with SyncOut ⇒ Send 1 PPS (external signal) ⇒ connect GPIO of RQX-58G and Lidar
+* RQX-58G with mraa ⇒ GPIO ⇒ receive 1 PPS for ISR and trigger camera
 
 Interfacing
 ^^^^^^^^^^^
@@ -56,16 +56,9 @@ Neuron Library
 
 .. code-block:: bash
 
-    # Setup ADLINK APT repository
-    sudo apt install curl
-    curl -L --insecure https://neuron.adlinktech.com/debian/repo_signing.key | sudo apt-key add -
-    echo 'Acquire::https::neuron.adlinktech.com::Verify-Peer "false";' | sudo tee /etc/apt/apt.conf.d/99roscube > /dev/null
-    echo 'Acquire::https::neuron.adlinktech.com::Verify-Host "false";' | sudo tee -a /etc/apt/apt.conf.d/99roscube > /dev/null
-    echo "deb [arch=$(dpkg --print-architecture)] https://neuron.adlinktech.com/debian/common$(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/roscube.list > /dev/null
-    sudo apt update
-
-    # Install Neuron Library
     sudo apt install neuron-library
+
+For more information, click `here <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/index.html>`_.
 
 Usage
 ^^^^^
@@ -132,10 +125,12 @@ Testing
 
     You can check camera devices by using command in terminal : ``ls /dev/video*``.
 
-Cameras without ISP can use **Argus API** to preview the camera's video streaming, or you can use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming.
+Use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming by following command below:
 
 .. code-block:: bash
 
     # Open a terminal and type command to open camera 1's video streaming.
     gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
     # Can change the snesor-id for other cameras.
+
+For more information, click `here <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/camera_usage.html>`_.
