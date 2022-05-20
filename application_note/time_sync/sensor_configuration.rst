@@ -1,34 +1,44 @@
 Sensor Configuration
 ====================
 
-In this page, we will show you how to interfacing and configuration.
+In this page, we will show you how to connect and configure the sensors, including GMSL camera, 3D Lidar and IMU.
 
-To trigger camera with external signal for **Frame Synchronization**.
+TODO: Add the figure of connection result here
 
-* MTi 670/680 with SyncOut ⇒ Send 1 PPS (external signal) ⇒ connect GPIO of RQX-58G and Lidar
-* RQX-58G with mraa ⇒ GPIO ⇒ receive 1 PPS for ISR and trigger camera
+Sensors Connection
+^^^^^^^^^^^^^^^^^^
 
-So we need to configure these sensors:
+Connect sensor to ROScube
+*************************
 
-* Camera
-* 3D Lidar
-* IMU
+We are using three kinds of sensors and each of them have their own connection interface. 
+Let's connect them to ROScube.
 
-Interfacing
-^^^^^^^^^^^
+* Camera: GMSL cable
+* 3D Lidar: Ethernet
+* IMU: USB
 
-Refer form `Interfacing an MTi GNSS/INS device with a Velodyne Lidar <https://base.xsens.com/s/article/Interfacing-an-MTi-GNSS-INS-device-with-a-Velodyne-Lidar?language=en_US>`_.
+Connect time sync trigger source
+********************************
 
-The figure shows how to connect your MTi-6x0 to the Velodyne Interface Box.
+The external trigger source we use here is the SyncOut from MTi 6x0G IMU.
+We need to connect GMSL camera and 3D Lidar to the trigger source.
 
-Please note the following:
+For the GMSL camera, we can only trigger it from ROScube,
+so we'll connect the trigger source to one of the ROScube-X GPIO input.
 
-* For testing purposes it is possible to power the MTi-6x0G directly using the 12V supply available in the Interface Box.
-* As mentioned in the MTi 600-series Hardware Integration Manual, the RS232 CTS line of the MTi-6x0G needs to be tied to a logical high (3-25V). Otherwise the MTi will not transmit data over the RS232 interface. 
+TODO: Add connection  between ROScube and MTi 6x0G
+
+For the 3D lidar, refer to figure from `Interfacing an MTi GNSS/INS device with a Velodyne Lidar <https://base.xsens.com/s/article/Interfacing-an-MTi-GNSS-INS-device-with-a-Velodyne-Lidar?language=en_US>`_.
 
 .. image:: images/interface-box.png
     :width: 80%
     :align: center
+
+.. note:: 
+
+    You might find that we don't use all the GNSS functions here.
+    All we want is to use 1PPS signal to make lidar do phase lock.
 
 Camera Configuration
 ^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +54,7 @@ Change the trigger mode on RQX-58G by following the commands below:
     echo 1 > /sys/module/leopard_ar0233/parameters/trigger_mode
     i2cset -f -y 2 0x66 0x04 0xff
 
-For more information, click `here <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/frame_sync.html>`_.
+For more detail, refer to `GMSL Camera Frame Sync Configuration <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/frame_sync.html>`_.
 
 3D Lidar Configuration
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -62,9 +72,9 @@ IP configuration
 ****************
 
 1. Open **Networks Connections** on your PC and click on **edit**. Choose the **IPV4 Settings** tab and change the **Method** field to **Manual**.
-2. Click on “Add” and set the IP address field to ``192.168.1.100`` (”100” can be any number except in a range between 1 and 254, except 201).
+2. Click on "Add" and set the IP address field to ``192.168.1.100`` ("100" can be any number except in a range between 1 and 254, except 201).
 3. Set the **Netmask** to ``255.255.255.0`` (24) and **Gateway** to ``0.0.0.0``.
-4. To finish it click on **Save**.
+4. To finish it, click on **Save**.
 
 .. image:: images/lidar-ip-config.png
     :width: 80%
@@ -90,15 +100,15 @@ IMU Configuration
 Configurations
 **************
 
-Refer form `Interfacing an MTi GNSS/INS device with a Velodyne Lidar <https://base.xsens.com/s/article/Interfacing-an-MTi-GNSS-INS-device-with-a-Velodyne-Lidar?language=en_US>`_.
-
-1. Start by configuring your MTi-6x0 to output the correct NMEA string and time data. The easiest way to do this is by using MT Manager, which is provided by `Xsens <https://www.xsens.com/software-downloads>`_. 
+1. Download MT Manager from `Xsens <https://www.xsens.com/software-downloads>`_ and install it.
 
 2. In MT Manager, open the Device Settings window. 
 
 3. In the Synchronization Options tab, the ``Clock Bias Estimation (In)`` and the ``1PPS Time-pulse`` features should already be present in the list of configured settings, both on line **In 2**.
 
     * Click Add, and select the ``Interval Transition Measurement`` function. Set **Skip Factor to 399**. Leave the other fields as is. This will create a **1 PPS signal** on the SyncOut line of the MTi. Click Apply.
+
+TODO: I think it'd better to add figure here.
 
 .. note::
 

@@ -32,7 +32,7 @@ Usage
     :width: 80%
     :align: center
 
-* Run ``nvargus-daemon`` by command line:
+* Run ``nvargus-daemon``. The reason why we need to run ``nvargus-daemon`` separately is that we are using docker to run ROS 2, not the native system.
 
 .. code-block:: bash
 

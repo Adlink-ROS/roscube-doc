@@ -32,7 +32,7 @@ Camera daemon installation
 
 While GMSL camera is frame synce mode, we need to trigger it continuously.
 ADLINK provides a daemon to do this for you.
-The daemon can not only trigger the camera but also recieve GPIO in to do the synchronization.
+The daemon can not only trigger the camera but also recieve GPIO IN to do the synchronization.
 
 Installation
 ------------
