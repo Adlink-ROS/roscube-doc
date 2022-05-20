@@ -22,3 +22,4 @@ For the software, each kind of sensor needs to run their own ROS driver to get s
 To put these sensor data together, we'll use message filter to collect them.
 We'll compare the timestamp difference between the sensors.
 It should be smaller than the case which is not synced.
+

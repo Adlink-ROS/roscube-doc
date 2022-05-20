@@ -22,6 +22,6 @@ we should make the timestamp difference among these sensors is as smaller as pos
    :maxdepth: 1
 
    architecture.rst
-   configuration.rst
+   sensor_configuration.rst
+   software_configuration.rst
    synchronization.rst
-   result.rst
