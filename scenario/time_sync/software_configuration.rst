@@ -1,60 +1,57 @@
 Software Configuration
 ======================
 
-After sensor configuration, here show you how to make software configuration
+After sensor configuration, then we need to do the following software configuration.
 
-* Installation ROS environment
-* Installation camera daemon
-* Installation sensors_pkg
+* ROS environment setup
+* Camera daemon installation
+* Sensors ROS driver installation
 
-Installation ROS Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ROS environment setup
+^^^^^^^^^^^^^^^^^^^^^
 
-We have provided the way how to isntall ROS enviroment, please click `<https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_.
+We'll use ROS 2 to receive data from each sensors.
+The first step here is to install ROS environment, and we choose ROS 2 foxy, which is the LTS version.
 
-.. note:: 
-    
-    **Install ROS environment in container**.
-
-    Since NVIDIA platform BSP is Ubuntu 18.04, it's inconvenient to run ROS 2 foxy, which is the ROS LTS version.
-    
-    Open Robotics only supports **ROS 2 foxy** on Ubuntu 20.04.
-
-Installation Camera Daemon
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Building the daemon from github.
-
-Building
---------
+However, RQX-58G only supports Ubuntu 18.04, while ROS 2 foxy can only run on Ubuntu 20.04.
+We suggest to use Neuron Startup Menu to install ROS 2 foxy.
+For more detail, refer to `The installation guide of Neuron Startup Menu <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_
 
 .. code-block:: bash
 
-    cd ~
-    git clone https://github.com/Adlink-ROS/camera_trigger_daemon.git
-    cd camera_trigger_daemon
+    # Install Neuron Startup Menu
+    sh -c "MENU_CONFIG=ros_menu_20.04_container.yaml USE_CONTAINER=True $(curl -fsSL https://raw.githubusercontent.com/Adlink-ROS/ros_menu/main/scripts/setup.sh)"
+    # Install docker
+    sudo apt install docker.io
+    sudo groupadd docker
+    sudo gpasswd -a $USER docker
+    sudo reboot
+
+Camera daemon installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+While GMSL camera is frame synce mode, we need to trigger it continuously.
+ADLINK provides a daemon to do this for you.
+The daemon can not only trigger the camera but also recieve GPIO in to do the synchronization.
 
 Installation
 ------------
 
 .. code-block:: bash
 
-    # Install Mraa
-    sudo add-apt-repository ppa:mraa/mraa
-    sudo apt-get update
-    sudo apt-get install libmraa2 libmraa-dev libmraa-java 
-    sudo apt-get install python-mraa python3-mraa node-mraa mraa-tools
-
     # Install Neuron Library
     sudo apt install neuron-library
+    # Get the code from GitHub
+    cd ~
+    git clone https://github.com/Adlink-ROS/camera_trigger_daemon.git
+    cd camera_trigger_daemon
 
-For more information about Neuron Library, click `<https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/index.html>`_.
+For more detail, refer to `The installation guide of Neuron Library <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/index.html>`_.
 
 Usage
 -----
 
-Before start the daemon for **Frame Synchronization**, make sure that **interfacing** and **configurations** are correct.
-
+Before running the daemon, make sure you have the correct sensors configuration.
 
 The daemon provides four function:
 
@@ -95,13 +92,9 @@ Testing
 
 .. note:: 
     
-    You should trigger the frame first before running camera streaming.
+    You should run camera trigger daemon first before start camera streaming.
 
-    And make sure the camera driver is installed.
-
-    You can check camera devices by using command in terminal : ``ls /dev/video*``.
-
-Use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming by following command below:
+Make sure you've already installed camera driver and run the following command to see whether the streaming is shown or not.
 
 .. code-block:: bash
 
@@ -109,12 +102,14 @@ Use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming by foll
     gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
     # Can change the snesor-id for other cameras.
 
-For more information, click `<https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/camera_usage.html>`_.
+For more detail, refer to `The tutorial of camera usage <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/camera_usage.html>`_.
 
-Installation ``sensors_pkg``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sensors ROS driver installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install ``sensors_pkg``, which is provided by **Adlink-ROS**, to view the timestamp of camera, lidar and imu.
+Sensors ROS driver ``sensors_pkg`` includes the ROS driver of sensors we use and message filter package to collect sensors data.
+We can collect camera, lidar and IMU data at the same time.
+This is the first step for users to do the sensor fusion.
 
 Install necessary packages
 --------------------------
