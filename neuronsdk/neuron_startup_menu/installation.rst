@@ -40,6 +40,10 @@ You can choose whether to install ROS environment in native host or in container
 
     Since installing container needs extra disk space, make sure the remaining space is more than 5G.
 
+.. note::
+
+    We use Dockerfile to create the container image. The Dockerfile is from `this GitHub repository <https://github.com/Adlink-ROS/docker_image_creator>`_.
+
 Uninstall
 ---------
 
