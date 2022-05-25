@@ -8,7 +8,7 @@ When mounting a **NVMe M.2 SSD** to ROScube, the storage will be appeared as a `
 
 .. code-block:: bash
 
-    cd rootOnStorages/nvme
+    cd rootOnStorage/nvme
     sudo ./copy-rootfs-nvme.sh
 
 .. image:: images/nvme-copy.png

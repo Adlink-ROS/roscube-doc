@@ -8,7 +8,7 @@ When inserting a **SD card** to ROScube, the storage will be appeared as a ``/de
 
 .. code-block:: bash
 
-    cd rootOnStorages/sdmmc
+    cd rootOnStorage/sdmmc
     sudo ./copy-rootfs-sdmmc.sh
 
 .. image:: images/sdmmc-copy.png
