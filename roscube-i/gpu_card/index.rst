@@ -12,7 +12,7 @@ In this chapter, we show you:
 
 **GPU Table:**
 
-These GPU cards which be used on **ROScube-I-E**.
+These GPU cards have been tested on **ROScube-I-E**.
 
     * ADLINK Quadro PEG T1000 
     * NVIDIA RTX A2000  12G
