@@ -27,12 +27,12 @@ Hardware Pinout
 Configuration
 -------------
 
-1. Make the system update
+1. Install necessary packages
 
 .. code-block:: bash
 
     sudo apt update
-    sudo apt upgrade
+    sudo apt install iproute2 can-utils
 
 2. Configure the bitrate for can0
 
@@ -46,6 +46,12 @@ In this command, **bitrate** can be any valid CAN bitrate for stand CAN.
 
     | 125000(125 Kbps), 250000(250 Kbps), 500000(500 Kbps) and 1000000(1Mbps) are supported bitrates for Tegra MTTCAN driver.
     | Any other bitrate is not validated on Tegra MTTCAN driver.
+
+If you want to show more configuration usage:
+
+.. code-block:: bash
+
+    ip link set can0 type can help
  
 3. Turn on can0
 
@@ -62,14 +68,51 @@ In this command, **bitrate** can be any valid CAN bitrate for stand CAN.
 Test
 ----
 
-1. To send CAN bus data out of can0:
-
-.. code-block:: bash
-
-    candump can0 -t A
+1. Connect CAN_H and CAN_L to other machines.
 
 2. To receive CAN bus data from can0:
 
 .. code-block:: bash
 
+    candump can0 -t A
+
+3. To send CAN bus data out of can0:
+
+.. code-block:: bash
+
     cansend can0 123#1122334455667788
+
+Loopback Test
+-------------
+
+If you just want to self-test the CAN function:
+
+1. Turn loopback on:
+
+.. code-block:: bash
+
+    sudo ip link set can0 down
+    sudo ip link set can0 type can loopback on
+    sudo ip link set can0 type can bitrate 1000000
+    sudo ip link set can0 up
+
+2. To receive CAN bus data from can0:
+
+.. code-block:: bash
+
+    candump can0 -t A
+
+3. To send CAN bus data out of can0:
+
+.. code-block:: bash
+
+    cansend can0 123#1122334455667788
+
+4. Remember to turn loopback off
+
+.. code-block:: bash
+
+    sudo ip link set can0 down
+    sudo ip link set can0 type can loopback off
+    sudo ip link set can0 type can bitrate 1000000
+    sudo ip link set can0 up
