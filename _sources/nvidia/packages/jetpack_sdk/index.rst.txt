@@ -1,9 +1,10 @@
 Jetpack SDK
 ###########
 
-Show the usage of Jetpack SDK in NVIDIA platform.
-   * How to Install Jetpack
-   * JetPack SDK Example-YOLO Object Detection
+The section shows the usage of Jetpack SDK in NVIDIA platform.
+
+* How to Install Jetpack
+* JetPack SDK Example-YOLO Object Detection
 
 **Table of Contents:**
 
