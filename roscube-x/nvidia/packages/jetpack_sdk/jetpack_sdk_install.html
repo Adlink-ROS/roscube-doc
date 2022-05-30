@@ -176,13 +176,13 @@
 <h1>Jetpack SDK Installation<a class="headerlink" href="#jetpack-sdk-installation" title="Permalink to this headline">¶</a></h1>
 <p>Since NVIDIA L4T 32.4.x support L4T OTA, users can download NVIDIA JetPack from NVIDIA’s official APT
 repository.
-For ROScube-X users, you can use apt to install NVIDIA JetPack compoments, e.g. tensorrt, cuda.</p>
-<div class="section" id="install-nvidia-l4t-jetson-multimedia-api">
-<h2>1. Install nvidia-l4t-jetson-multimedia-api<a class="headerlink" href="#install-nvidia-l4t-jetson-multimedia-api" title="Permalink to this headline">¶</a></h2>
-<p>Before installing JetPack SDK, you should install nvidia-l4t-jetson-multimedia-api in a proper ver-
-sion coresponding to L4T version.</p>
+For ROScube NVIDIA platform users, you can use apt to install NVIDIA JetPack compoments, e.g. CUDA, tensorrt.</p>
+<div class="section" id="install-the-whole-jetpack-sdk">
+<h2>1. Install the whole JetPack SDK<a class="headerlink" href="#install-the-whole-jetpack-sdk" title="Permalink to this headline">¶</a></h2>
+<p>Assuming your Jetson developer kit has been flashed with and is running <strong>L4T 32.4.x</strong>,
+the following commands will install <strong>all</strong> <code class="docutils literal notranslate"><span class="pre">JetPack</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
-sudo apt install nvidia-l4t-jetson-multimedia-api
+sudo apt install nvidia-jetpack
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -193,20 +193,31 @@ sudo apt install nvidia-l4t-jetson-multimedia-api
 </div>
 </div>
 </div>
-<div class="section" id="install-the-whole-jetpack-sdk">
-<h2>2. Install the whole JetPack SDK<a class="headerlink" href="#install-the-whole-jetpack-sdk" title="Permalink to this headline">¶</a></h2>
-<p>Assuming your Jetson developer kit has been flashed with and is running <strong>L4T 32.3.1</strong> or higher,
-the following commands will install <strong>all</strong> <code class="docutils literal notranslate"><span class="pre">JetPack</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
-sudo apt install nvidia-jetpack
+<div class="section" id="install-particular-jetpack-sdk-compoment">
+<h2>2. Install particular JetPack SDK compoment.<a class="headerlink" href="#install-particular-jetpack-sdk-compoment" title="Permalink to this headline">¶</a></h2>
+<p>If we only want to use parts of JetPack SDK (e.g. CUDA) instead the whole JetPack SDK,
+we can just install related library.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we just want to use CUDA library</span>
+sudo apt update
+sudo apt install nvidia-cuda nvidia-l4t-cuda
 </pre></div>
 </div>
 </div>
-<div class="section" id="install-particular-jetpack-sdk-compoment">
-<h2>3. Install particular JetPack SDK compoment.<a class="headerlink" href="#install-particular-jetpack-sdk-compoment" title="Permalink to this headline">¶</a></h2>
-<p>(e.g. <code class="docutils literal notranslate"><span class="pre">nvidia-tensorrt</span></code>)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
-sudo apt install nvidia-tensorrt
+<div class="section" id="optional-use-cuda-in-the-container">
+<h2>3. (Optional) Use CUDA in the container.<a class="headerlink" href="#optional-use-cuda-in-the-container" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use CUDA in the container, follow the steps below.</p>
+<ol class="loweralpha simple">
+<li><p>Install CUDA library in the native host.</p></li>
+<li><p>Use <a class="reference external" href="https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/index.html">Neuron Startup Menu</a> to install containers, which already include necessary packages and docker arguments.</p></li>
+<li><p>Entering the containers and typing the following commands.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CUDA 10.2 only supports gcc8 and g++8</span>
+sudo apt update
+sudo apt install gcc-8 g++-8
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 <span class="m">8</span>
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 <span class="m">8</span>
+<span class="c1"># Install libcudnn8-dev</span>
+sudo apt install libcudnn8-dev
 </pre></div>
 </div>
 </div>
