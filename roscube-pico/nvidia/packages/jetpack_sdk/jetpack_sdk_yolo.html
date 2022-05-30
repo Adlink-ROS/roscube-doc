@@ -202,14 +202,14 @@ git clone https://github.com/AlexeyAB/darknet.git
 </div>
 <div class="section" id="build-darknet-with-cudnn-and-opencv-support">
 <h2>4. Build darknet with CUDNN and OpenCV support.<a class="headerlink" href="#build-darknet-with-cudnn-and-opencv-support" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>Modify darknet’s Makefile with the following:</dt><dd><ul class="simple">
+<p>Modify darknet’s Makefile with the following:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>GPU=1</p></li>
 <li><p>CUDNN=1</p></li>
 <li><p>OPENCV=1</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
 sudo apt install make build-essential
 <span class="nb">cd</span> darknet

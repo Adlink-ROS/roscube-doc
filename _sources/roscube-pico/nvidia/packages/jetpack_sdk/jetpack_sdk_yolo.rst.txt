@@ -36,6 +36,7 @@ YOLO Object Detection
 4. Build darknet with CUDNN and OpenCV support.
 -----------------------------------------------
 Modify darknet's Makefile with the following:
+
     * GPU=1
     * CUDNN=1
     * OPENCV=1
