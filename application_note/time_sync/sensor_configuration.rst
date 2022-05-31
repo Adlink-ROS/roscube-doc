@@ -3,7 +3,9 @@ Sensor Configuration
 
 In this page, we will show you how to connect and configure the sensors, including GMSL camera, 3D Lidar and IMU.
 
-TODO: Add the figure of connection result here
+.. image:: images/connection-result.jpeg
+    :width: 80%
+    :align: center
 
 Sensors Connection
 ^^^^^^^^^^^^^^^^^^
@@ -27,11 +29,19 @@ We need to connect GMSL camera and 3D Lidar to the trigger source.
 For the GMSL camera, we can only trigger it from ROScube,
 so we'll connect the trigger source to one of the ROScube-X GPIO input.
 
-TODO: Add connection  between ROScube and MTi 6x0G
-
-For the 3D lidar, refer to figure from `Interfacing an MTi GNSS/INS device with a Velodyne Lidar <https://base.xsens.com/s/article/Interfacing-an-MTi-GNSS-INS-device-with-a-Velodyne-Lidar?language=en_US>`_.
+For the **3D lidar**, refer to figure from `Interfacing an MTi GNSS/INS device with a Velodyne Lidar <https://base.xsens.com/s/article/Interfacing-an-MTi-GNSS-INS-device-with-a-Velodyne-Lidar?language=en_US>`_.
 
 .. image:: images/interface-box.png
+    :width: 80%
+    :align: center
+
+Connect SyncOut from **MTi 6x0G** to GPIO 5 pin of **ROScube**:
+
+.. image:: images/imu.jpeg
+    :width: 80%
+    :align: center
+
+.. image:: images/gpio.jpeg
     :width: 80%
     :align: center
 
