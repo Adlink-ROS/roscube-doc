@@ -97,7 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#extend-the-storage">Extend the storage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-cuda-library">Install CUDA library</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-neuron-startup-menu">Install Neuron Startup Menu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-necessary-packages-for-the-container">Install necessary packages for the container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-necessary-packages-in-the-container">Install necessary packages in the container</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-yolo-object-detection-example">Run YOLO Object Detection example</a></li>
 </ul>
 </li>
@@ -228,10 +228,10 @@ sudo reboot
 <p>When you open a new terminal, it’ll show which kind of envrionment you want to run.
 For more information, refer to <a class="reference external" href="https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html">Neuron Startup Menu</a>.</p>
 </div>
-<div class="section" id="install-necessary-packages-for-the-container">
-<h2>Install necessary packages for the container<a class="headerlink" href="#install-necessary-packages-for-the-container" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-necessary-packages-in-the-container">
+<h2>Install necessary packages in the container<a class="headerlink" href="#install-necessary-packages-in-the-container" title="Permalink to this headline">¶</a></h2>
 <p>Since NVIDIA CUDA from Jetpack 4.6 has some limitation to run in Ubuntu 20.04 container,
-we still need to do the following settings.</p>
+we still need to do the following settings in your container.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CUDA 10.2 only supports gcc8 and g++8</span>
 sudo apt update
 sudo apt install gcc-8 g++-8

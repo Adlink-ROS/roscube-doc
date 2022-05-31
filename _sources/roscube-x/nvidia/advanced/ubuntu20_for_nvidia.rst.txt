@@ -61,11 +61,11 @@ Set the docker privilege
 When you open a new terminal, it'll show which kind of envrionment you want to run.
 For more information, refer to `Neuron Startup Menu <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_.
 
-Install necessary packages for the container
---------------------------------------------
+Install necessary packages in the container
+-------------------------------------------
 
 Since NVIDIA CUDA from Jetpack 4.6 has some limitation to run in Ubuntu 20.04 container,
-we still need to do the following settings.
+we still need to do the following settings in your container.
 
 .. code-block:: bash
 
