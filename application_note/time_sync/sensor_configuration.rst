@@ -118,7 +118,9 @@ Configurations
 
     * Click Add, and select the ``Interval Transition Measurement`` function. Set **Skip Factor to 399**. Leave the other fields as is. This will create a **1 PPS signal** on the SyncOut line of the MTi. Click Apply.
 
-TODO: I think it'd better to add figure here.
+.. image:: images/imu-config.png
+    :width: 80%
+    :align: center
 
 .. note::
 
