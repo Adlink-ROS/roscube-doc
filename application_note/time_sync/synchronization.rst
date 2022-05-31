@@ -14,10 +14,17 @@ Usage
 .. code-block:: bash
 
     cd ~/camera_trigger_daemon
-    # start daemon
-    sudo python3 isr_camera start
-    # stop daemon
-    sudo python3 isr_camera stop
+
+    # Sync mode: start the daemon
+    # To trigger camera by 5 Hz with ISR (from GPIO_NUM 5).
+    sudo python3 adlink_camera_sync sync -f 5 -t 5
+
+    # Free mode: stop the daemon.
+    sudo python3 adlink_camera_sync free
+
+.. image:: images/sync-mode.png
+    :width: 80%
+    :align: center
 
 .. note::
     
@@ -54,9 +61,6 @@ Usage
 * To view the timestamp of camera, lidar and imu by launch ``sensors_pkg``
 
 .. code-block:: bash
-    
-    # To view the timestamp of camera, lidar and imu.
-    ros2 run sensors_pkg sensor_subscriber
 
     # Launch camera, lidar and message filter at the same time
     ros2 launch sensors_pkg launch_sensors.launch.py
