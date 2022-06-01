@@ -14,17 +14,8 @@ Usage
 .. code-block:: bash
 
     cd ~/camera_trigger_daemon
-
-    # Sync mode: start the daemon
     # To trigger camera by 5 Hz with ISR (from GPIO_NUM 5).
     sudo python3 adlink_camera_sync sync -f 5 -t 5
-
-    # Free mode: stop the daemon.
-    sudo python3 adlink_camera_sync free
-
-.. image:: images/sync-mode.png
-    :width: 80%
-    :align: center
 
 .. note::
     
