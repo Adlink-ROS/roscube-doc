@@ -15,7 +15,7 @@ The first step here is to install ROS environment, and we choose ROS 2 foxy, whi
 
 However, RQX-58G only supports Ubuntu 18.04, while ROS 2 foxy can only run on Ubuntu 20.04.
 We suggest to use Neuron Startup Menu to install ROS 2 foxy.
-For more detail, refer to `The installation guide of Neuron Startup Menu <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_
+For more details, refer to `The installation guide of Neuron Startup Menu <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_startup_menu/installation.html>`_
 
 .. code-block:: bash
 
@@ -46,49 +46,51 @@ Installation
     git clone https://github.com/Adlink-ROS/camera_trigger_daemon.git
     cd camera_trigger_daemon
 
-For more detail, refer to `The installation guide of Neuron Library <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/index.html>`_.
+For more details, refer to `The installation guide of Neuron Library <https://adlink-ros.github.io/roscube-doc/neuronsdk/neuron_library/index.html>`_.
 
 Usage
 -----
 
 Before running the daemon, make sure you have the correct sensors configuration.
 
-The daemon provides four function:
+The daemon provides two function:
 
-* Start : trigger cameras with external signal.
-* Stop : stop the daemon.
-* Restart : stop and then start.
-* Start_free : trigger cameras without external signal.
+* Sync mode:
 
-Default option:
+  1. set frame sync mode
+  2. enable isr if gpio_num != None
+  3. enable trigger daemon
 
-* GPIO(ISR) = 5 pin
-* trigger hz = 5 hz
+* Free mode:  
+
+  1. disable trigger daemon 
+  2. set free run mode
+
+While sync mode, supports two options
+  * -f freq: the trigger frequency (default 5 Hz)
+  * -t gpio_num: whether triggered by GPIO in
 
 .. code-block:: bash
 
-    # Start the daemon
-    sudo python3 isr_camera.py start
-    # Otherwise, trigger cameras by 10 hz and setting GPIO: 6 pin to interrupt.
-    sudo python3 isr_camera.py start 10 6
+    # Sync mode: start the daemon
+    # To trigger camera by 5 Hz with ISR (from GPIO_NUM 5).
+    sudo python3 adlink_camera_sync sync -f 5 -t 5
 
-    # Stop the daemon
-    sudo python3 isr_camera.py stop
+    # Free mode: stop the daemon.
+    sudo python3 adlink_camera_sync free
 
-    # Restart the daemon 
-    sudo python3 isr_camera.py restart
-
-    # Start the daemon without the PPS
-    sudo python3 isr_camera.py start_free
-    # Otherwise, trigger cameras by 10 hz.
-    sudo python3 isr_camera.py start_free 10
+.. image:: images/sync-mode.png
+    :width: 80%
+    :align: center
 
 .. warning:: 
 
     If the daemon didn't work, please check the ``daemon.log`` file.
 
-Testing
--------
+For more details, refer to `The Camera Trigger Daemon <https://github.com/Adlink-ROS/camera_trigger_daemon>`_. 
+
+Testing the camera
+------------------
 
 .. note:: 
     
@@ -102,7 +104,7 @@ Make sure you've already installed camera driver and run the following command t
     gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
     # Can change the snesor-id for other cameras.
 
-For more detail, refer to `The tutorial of camera usage <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/camera_usage.html>`_.
+For more details, refer to `The tutorial of camera usage <https://adlink-ros.github.io/roscube-doc/roscube-x/gmsl_camera/camera_usage.html>`_.
 
 Sensors ROS driver installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
