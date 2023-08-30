@@ -10,17 +10,8 @@ Welcome to the ROScube documentation.
 
 Please refer to different sections based on your platform.
 
-**NVIDIA series**
-
-- ROScube-X series
-- ROScube Pico series
-
-**Intel series**
-
-- ROScube-I
-
 .. toctree::
-   :hidden:
+   :caption: Table of Contents
 
    roscube-x/index.rst
    roscube-pico/index.rst
