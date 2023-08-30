@@ -3,16 +3,38 @@
 Camera Usage
 ############
 
+GStreamer
+---------
+
 Different video frameworks have different methods to run cameras.
 You should check which video framework your camera is and select the right method.
 
-Here we show how to run cameras with gstreamer plugin based on NVIDIA Argus or V4L2.
+Here we show how to run cameras with gstreamer plugin based on V4L2 or NVIDIA Argus.
 
-NVIDIA Argus
-------------
+If your camera has ISP, then you sholud use v4l2src; otherwise, use nvarguscamerasrc for the cameras without ISP.
+
+v4l2src plugin
+==============
+
+To use V4L2, you can read video device under ``/dev/`` directly.
+The camera will be listed like ``/dev/videoX``, while X is from 0-7.
+
+To read camera 1 by gstreamer:
+
+.. code:: bash
+
+    # Example for Tier IV C1 video0
+    gst-launch-1.0 -e v4l2src device=/dev/video0 ! 'video/x-raw,format=UYVY,width=1920,height=1280' ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+
+.. image:: images/tier4_video0.png
+  :width: 100%
+  :align: center
+
+nvarguscamerasrc plugin
+=======================
 
 Cameras without ISP can use **Argus API** to preview the camera's video streaming, 
-or you can use **GStreamer NVArgusCameraSrc plugin** to preview the video streaming.
+or you can use **GStreamer nvarguscamerasrc plugin** to preview the video streaming.
 
 Make sure you have modified **sensor-id=0** on the following command.
 
@@ -40,13 +62,15 @@ i. Open a terminal and type command to open ``camera 1's video`` streaming.
 
 .. code:: bash
 
-    gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
+    # Example for AR0233 w/o ISP
+    gst-launch-1.0 -e nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv ! 'video/x-raw, format=(string)RGBA' ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+
 
 ii. Open **another** terminal and type command to ``open camera 2's video`` streaming.
 
 .. code:: bash
 
-    gst-launch-1.0 nvarguscamerasrc sensor-id=1 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw, format=(string)I420' ! xvimagesink -e
+    gst-launch-1.0 -e nvarguscamerasrc sensor-id=1 ! 'video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1' ! nvvidconv ! 'video/x-raw, format=(string)RGBA' ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
 
 .. image:: images/gst-test.png
   :width: 80%
@@ -63,22 +87,15 @@ If successful, you will see two windows from different cameras, like below.
     If you find that Argus plugin can't operate well, you can restart nvargus-daemon.
     ``sudo systemctl restart nvargus-daemon.service``
 
-V4L2
-----
+v4l-utils
+---------
 
-To use V4L2, you can read video device under ``/dev/`` directly.
-The camera will be listed like ``/dev/videoX``, while X is from 0-7.
-You can also read the camera under ``/dev/gmsl/*``.
-Both two ways are available.
-
-To read camera 1 by gstreamer:
+v4l2-ctl offers a way to start camera stream and evaluate the FPS without showing the real images.
 
 .. code:: bash
 
-    gst-launch-1.0 v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-raw,format=UYVY ! queue ! videoconvert ! ximagesink sync=no
-
-To read camera 1 by v4l2 tools
-
-.. code:: bash
-
-    v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=UYVY --stream-mmap=3 --stream-count=600
+    v4l2-ctl -d /dev/video0  --set-ctrl bypass_mode=0 --stream-mmap
+    
+.. image:: images/v4l2-ctl.png
+  :width: 100%
+  :align: center

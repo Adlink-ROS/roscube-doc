@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Camera Usage &mdash; roscube-doc 0.9.0 documentation</title>
+  <title>Camera Usage &mdash; roscube-doc 0.9.1 documentation</title>
   
 
   
@@ -85,13 +85,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../flash_image/index.html">How to flash image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nvidia/quick_start/index.html">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../accessory/index.html">Accessory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nvidia/packages/index.html">The Packages</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">GMSL 2 Camera</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../nvidia/packages/index.html">NVIDIA Packages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GMSL2 Camera</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="system_diagram.html">System Diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="camera_driver.html">Camera Driver Installation</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Camera Usage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nvidia-argus">NVIDIA Argus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#v4l2">V4L2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gstreamer">GStreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#v4l-utils">v4l-utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="frame_sync.html">Frame Synchronization</a></li>
@@ -151,7 +151,7 @@
         
           <li><a href="../index.html">ROScube-X series</a> &raquo;</li>
         
-          <li><a href="index.html">GMSL 2 Camera</a> &raquo;</li>
+          <li><a href="index.html">GMSL2 Camera</a> &raquo;</li>
         
       <li>Camera Usage</li>
     
@@ -174,13 +174,27 @@
             
   <div class="section" id="camera-usage">
 <span id="id1"></span><h1>Camera Usage<a class="headerlink" href="#camera-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gstreamer">
+<h2>GStreamer<a class="headerlink" href="#gstreamer" title="Permalink to this headline">¶</a></h2>
 <p>Different video frameworks have different methods to run cameras.
 You should check which video framework your camera is and select the right method.</p>
-<p>Here we show how to run cameras with gstreamer plugin based on NVIDIA Argus or V4L2.</p>
-<div class="section" id="nvidia-argus">
-<h2>NVIDIA Argus<a class="headerlink" href="#nvidia-argus" title="Permalink to this headline">¶</a></h2>
+<p>Here we show how to run cameras with gstreamer plugin based on V4L2 or NVIDIA Argus.</p>
+<p>If your camera has ISP, then you sholud use v4l2src; otherwise, use nvarguscamerasrc for the cameras without ISP.</p>
+<div class="section" id="v4l2src-plugin">
+<h3>v4l2src plugin<a class="headerlink" href="#v4l2src-plugin" title="Permalink to this headline">¶</a></h3>
+<p>To use V4L2, you can read video device under <code class="docutils literal notranslate"><span class="pre">/dev/</span></code> directly.
+The camera will be listed like <code class="docutils literal notranslate"><span class="pre">/dev/videoX</span></code>, while X is from 0-7.</p>
+<p>To read camera 1 by gstreamer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example for Tier IV C1 video0</span>
+gst-launch-1.0 -e v4l2src <span class="nv">device</span><span class="o">=</span>/dev/video0 ! <span class="s1">&#39;video/x-raw,format=UYVY,width=1920,height=1280&#39;</span> ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/tier4_video0.png"><img alt="../../_images/tier4_video0.png" class="align-center" src="../../_images/tier4_video0.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="nvarguscamerasrc-plugin">
+<h3>nvarguscamerasrc plugin<a class="headerlink" href="#nvarguscamerasrc-plugin" title="Permalink to this headline">¶</a></h3>
 <p>Cameras without ISP can use <strong>Argus API</strong> to preview the camera’s video streaming,
-or you can use <strong>GStreamer NVArgusCameraSrc plugin</strong> to preview the video streaming.</p>
+or you can use <strong>GStreamer nvarguscamerasrc plugin</strong> to preview the video streaming.</p>
 <p>Make sure you have modified <strong>sensor-id=0</strong> on the following command.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -222,13 +236,14 @@ or you can use <strong>GStreamer NVArgusCameraSrc plugin</strong> to preview the
 <ol class="lowerroman simple">
 <li><p>Open a terminal and type command to open <code class="docutils literal notranslate"><span class="pre">camera</span> <span class="pre">1's</span> <span class="pre">video</span></code> streaming.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 nvarguscamerasrc sensor-id<span class="o">=</span><span class="m">0</span> ! <span class="s1">&#39;video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1&#39;</span> ! nvvidconv flip-method<span class="o">=</span><span class="m">0</span> ! <span class="s1">&#39;video/x-raw, format=(string)I420&#39;</span> ! xvimagesink -e
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example for AR0233 w/o ISP</span>
+gst-launch-1.0 -e nvarguscamerasrc sensor-id<span class="o">=</span><span class="m">0</span> ! <span class="s1">&#39;video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1&#39;</span> ! nvvidconv ! <span class="s1">&#39;video/x-raw, format=(string)RGBA&#39;</span> ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <ol class="lowerroman simple" start="2">
 <li><p>Open <strong>another</strong> terminal and type command to <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">camera</span> <span class="pre">2's</span> <span class="pre">video</span></code> streaming.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 nvarguscamerasrc sensor-id<span class="o">=</span><span class="m">1</span> ! <span class="s1">&#39;video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1&#39;</span> ! nvvidconv flip-method<span class="o">=</span><span class="m">0</span> ! <span class="s1">&#39;video/x-raw, format=(string)I420&#39;</span> ! xvimagesink -e
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 -e nvarguscamerasrc sensor-id<span class="o">=</span><span class="m">1</span> ! <span class="s1">&#39;video/x-raw(memory:NVMM), width=2048, height=1280, framerate=30/1&#39;</span> ! nvvidconv ! <span class="s1">&#39;video/x-raw, format=(string)RGBA&#39;</span> ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/gst-test.png"><img alt="../../_images/gst-test.png" class="align-center" src="../../_images/gst-test.png" style="width: 80%;" /></a>
@@ -240,20 +255,14 @@ or you can use <strong>GStreamer NVArgusCameraSrc plugin</strong> to preview the
 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nvargus-daemon.service</span></code></p>
 </div>
 </div>
-<div class="section" id="v4l2">
-<h2>V4L2<a class="headerlink" href="#v4l2" title="Permalink to this headline">¶</a></h2>
-<p>To use V4L2, you can read video device under <code class="docutils literal notranslate"><span class="pre">/dev/</span></code> directly.
-The camera will be listed like <code class="docutils literal notranslate"><span class="pre">/dev/videoX</span></code>, while X is from 0-7.
-You can also read the camera under <code class="docutils literal notranslate"><span class="pre">/dev/gmsl/*</span></code>.
-Both two ways are available.</p>
-<p>To read camera 1 by gstreamer:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 v4l2src <span class="nv">device</span><span class="o">=</span>/dev/video0 ! videoconvert ! videoscale ! video/x-raw,format<span class="o">=</span>UYVY ! queue ! videoconvert ! ximagesink <span class="nv">sync</span><span class="o">=</span>no
+</div>
+<div class="section" id="v4l-utils">
+<h2>v4l-utils<a class="headerlink" href="#v4l-utils" title="Permalink to this headline">¶</a></h2>
+<p>v4l2-ctl offers a way to start camera stream and evaluate the FPS without showing the real images.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>v4l2-ctl -d /dev/video0  --set-ctrl <span class="nv">bypass_mode</span><span class="o">=</span><span class="m">0</span> --stream-mmap
 </pre></div>
 </div>
-<p>To read camera 1 by v4l2 tools</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>v4l2-ctl -d /dev/video0 --set-fmt-video<span class="o">=</span><span class="nv">width</span><span class="o">=</span><span class="m">1920</span>,height<span class="o">=</span><span class="m">1080</span>,pixelformat<span class="o">=</span>UYVY --stream-mmap<span class="o">=</span><span class="m">3</span> --stream-count<span class="o">=</span><span class="m">600</span>
-</pre></div>
-</div>
+<a class="reference internal image-reference" href="../../_images/v4l2-ctl.png"><img alt="../../_images/v4l2-ctl.png" class="align-center" src="../../_images/v4l2-ctl.png" style="width: 100%;" /></a>
 </div>
 </div>
 
@@ -277,7 +286,7 @@ Both two ways are available.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022, ADLINK Autonomous Business Center
+        &copy; Copyright 2023, ADLINK Technology
 
     </p>
   </div>

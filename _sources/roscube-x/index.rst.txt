@@ -5,10 +5,8 @@ ROScube-X series
 
 The supported models:
 
-- ROScube-X 580
-- ROScube-X 580-E
-- ROScube-X 58G
-- ROScube-X 58G-E
+- ROScube-X 580/58G series
+- ROScube-X 590 series
 
 **Table of Contents:**
 

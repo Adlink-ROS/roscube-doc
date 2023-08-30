@@ -1,7 +1,7 @@
 :orphan:
 
-The Packages
-############
+NVIDIA Packages
+###############
 
 Show the usage of application in NVIDIA platform.
 

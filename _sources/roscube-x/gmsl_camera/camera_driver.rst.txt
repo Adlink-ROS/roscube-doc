@@ -3,50 +3,88 @@
 Camera Driver Installation
 ##########################
 
-You need to install dedicated Camera's driver (e.g. ``leopard-ar0233-gmsl``).
+You need to install dedicated camera driver.
 
-The driver is provided by **ADLINK** and could not be used on other vendor's platform since it is compiled into binary.
+Please ask ADLINK or the camera vendor for the latest camera driver.
 
-And it can only download form **ADLINK ROScube's APT repository**.
-
-1. Install Camera Driver.
+1. Install Camera Driver
 -------------------------
 
-To install **Leopard AR0233 GMSL** camera, please by following terminal commands below:
+To install camera driver, please follow the commands below:
 
 .. code:: bash
     
     sudo apt update
-    # Remove lagecy leopard ar0233 kernel module.
-    sudo apt remove --purge leopard-ar0233-gmsl-kmod
-    sudo apt remove --purge rqx58g-ioboard-gmsl-kmod
-    sudo apt install leopard-ar0233-gmsl
+    sudo apt install -f <camera_driver.deb>
+    
+    # Examples:
+    # 
+    # [Tier IV]
+    # sudo apt install -f tier4-camera-gmsl_1.3.0_arm64.deb
+    # 
+    # [Leopard AR0233]
+    # sudo apt install -f roscube-gmsl-serdes_0.9.3_arm64.deb
+    
+.. warning::
 
-2. Inspect Camera Driver.
+    | You can only install one camera driver in ROScube to avoid conflicts.
+      If there are two or more, please remove them which you don't use.
+    | To remove unused camera driver, please use ``sudo apt remove --purge <camera driver>``
+
+
+2. Apply Device Tree
 -------------------------
 
-To inspect your available camera device tree setting after installing, please use the following terminal command:
+To enable the camera driver, you have to apply the device tree settings.
+Before applying, please use below command to list available modules:
 
 .. code:: bash
 
-    sudo /opt/nvidia/jetson-io/config-by-hardware.py -l
+    sudo /opt/nvidia/jetson-io/config-by-hardware.py --list
 
 .. image:: images/config-hardware-list.png
   :width: 80%
   :align: center
 
-.. warning::
+The camera device tree overlay may be located in different headers depends on the BSP and Jetpack version.
 
-    | It can only install one cammera's driver at the same time.
-      If there are two or more, please remove them which you don't use.
-    | To remove unused camera driver, please use ``sudo apt remove --purge <camera driver>``
+.. image:: images/config-hardware-list-tier4.png
+  :width: 80%
+  :align: center
 
-3. Apply Device Tree Settings.
-------------------------------
+To apply the device tree setings, please follow the commands below:
 
-To apply **Leopard AR0233 device tree** settings to all camera channels, please use the following terminal command:
+For Jetpack 4.6, 5.0, and later:
+================================
 
-**For Jetpack 4.5**, use the following
+If the device tree is located in "Header 1", please enter below command:
+
+.. code:: bash
+
+    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 1='<YOUR_CAMERA_DEVICE_TREE_OVERLAY>'
+    # Examples:
+    #
+    # [Tier IV C1]
+    # sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 1='TIERIV ISX021 GMSL2 Camera Device Tree Overlay'
+    #
+    # [Leopard AR0233]
+    # sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 1='Leopard AR0233 RAW GMSL2 Camera Device Tree Overlay'
+
+
+Otherwise, the device tree is located in "Header 2", please enter below command:
+
+.. code:: bash
+
+    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2='<YOUR_CAMERA_DEVICE_TREE_OVERLAY>'
+
+.. image:: images/config-hardware-name.png
+  :width: 80%
+  :align: center
+
+
+For Jetpack 4.5:
+================
+
 
 Download the patched :download:`libgstnvarguscamerasrc.so <file/libgstnvarguscamerasrc.so>` and replace this file with the original one.
 
@@ -55,36 +93,31 @@ Download the patched :download:`libgstnvarguscamerasrc.so <file/libgstnvarguscam
     sudo rm /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
     sudo mv libgstnvarguscamerasrc.so /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so
 
-Then, apply device tree into your current system.
+Then, apply device tree into your system.
 
 .. code:: bash
 
-    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 'Leopard AR0233 GMSL2 Camera Device Tree Overlay'
+    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n '<YOUR_CAMERA_DEVICE_TREE_OVERLAY>'
 
-**For Jetpack 4.6**, use the following
+3. Reboot
+----------
 
+Finally, please **reboot** system for the new settings to take effect.
+    
 .. code:: bash
 
-    sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2='Leopard AR0233 GMSL2 Camera Device Tree Overlay'
+    sudo reboot
 
-.. image:: images/config-hardware-name.png
-  :width: 80%
-  :align: center
-
-.. note::
-
-    To reconfigure, please **reboot** system.
-
-4. Check Camera.
+4. Check Camera
 ----------------
 
-After rebooting system, you can check if the cameras are available.
+After rebooting, you can check if the cameras are available.
 
-Please use the following terminal command:
+Please use the following command to check:
 
 .. code:: bash
 
-    ls /dev/gmsl/*
+    ls /dev/video*
 
 .. image:: images/dev-video.png
   :width: 80%
@@ -93,5 +126,5 @@ Please use the following terminal command:
 
 .. warning::
 
-    | If it can't show any video devices, make sure cameras are connected.
-    | And check the error message by ``dmesg | egrep ar0233`` in terminal command.
+    | If there are no video devices, make sure cameras are connected.
+    | And check the error logs by typing the command ``dmesg | egrep -i 'max9295|max9296'`` in terminal.
