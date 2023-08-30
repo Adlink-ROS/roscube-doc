@@ -8,7 +8,11 @@ How to flash MFI
 
 i) Download mfi image.  
 
-  * Go to the `device web <https://www.adlinktech.com/Products/ROS2_Solution/ROS2_Controller/ROScube-X?lang=en/>`_.
+  * Go to the website:
+  
+    - `RQX-580/58G <https://www.adlinktech.com/Products/ROS2_Solution/ROS2_Controller/RQX-580_58G/>`_.
+    
+    - `RQX-590 series <https://www.adlinktech.com/Products/ROS2_Solution/ROS2_Controller/RQX-59_series/>`_. 
 
   .. image:: images/device-web.png
     :width: 80%

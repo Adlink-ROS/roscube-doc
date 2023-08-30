@@ -52,6 +52,8 @@ Check out the mode on **Host PC**.
   * Normal mode will show **L4T**.
   * Recovery mode will show **APX**. 
 
+  If you can't see APX text, please try to change the USB cable or the Host USB port.
+
 .. image:: images/nvidia-usb.png
   :width: 80%
   :align: center

@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'roscube-doc'
-copyright = '2022, ADLINK Autonomous Business Center'
-author = 'ADLINK Autonomous Business Center'
+copyright = '2023, ADLINK Technology'
+author = 'ADLINK'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.9.0'
+release = '0.9.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'roscube-doc.tex', 'roscube-doc Documentation',
-     'ADLINK Autonomous Business Center', 'manual'),
+     'ADLINK', 'manual'),
 ]
 
 
