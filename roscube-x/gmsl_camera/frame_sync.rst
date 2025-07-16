@@ -7,7 +7,7 @@ The ROScube-X compatible GMSL2 cameras can be run in the following modes:
 
 - **Free Run mode** - The camera runs at default FPS.
 - **Fsync Auto Trigger mode** - The camera shutter is automatically triggered by FPGA.
-- **Fsync Manual Trigger mode** - The camera shutter is manually triggered by Fsync signal.
+- **Fsync Manual Trigger mode** - The camera shutter is manually triggered by Application.
 
 | For Free Run mode, the FPS is fixed at default frame rate.
 | For Fsync (Frame Synchronization) mode, the FPS can be different depends on the triggering rate.
@@ -173,17 +173,17 @@ The 4 GPIOs used to send Fsync signal are listed below:
 
 - For RQX-590 Series:
 
-+-----------------+-------------------------+----------+
-| Camera Number   | Sysfs Pin Number        | Pin Name |
-+=================+=========================+==========+
-| cam 1 - cam 2   | /sys/class/gpio/gpio440 | PP.00    |
-+-----------------+-------------------------+----------+
-| cam 3 - cam 4   | /sys/class/gpio/gpio397 | PH.06    |
-+-----------------+-------------------------+----------+
-| cam 5 - cam 6   | /sys/class/gpio/gpio487 | PAC.01   |
-+-----------------+-------------------------+----------+
-| cam 7 - cam 8   | /sys/class/gpio/gpio486 | PAC.00   |
-+-----------------+-------------------------+----------+
++-----------------+------------------------------+----------------------+----------+
+| Camera Number   | JetPack 5.x Sysfs Pin Number | JetPack 6.x gpiochip | Pin Name |
++=================+==============================+======================+==========+
+| cam 1 - cam 2   | /sys/class/gpio/gpio440      | gpiochip0 line 92    | PP.00    |
++-----------------+------------------------------+----------------------+----------+
+| cam 3 - cam 4   | /sys/class/gpio/gpio397      | gpiochip0 line 49    | PH.06    |
++-----------------+------------------------------+----------------------+----------+
+| cam 5 - cam 6   | /sys/class/gpio/gpio487      | gpiochip0 line 139   | PAC.01   |
++-----------------+------------------------------+----------------------+----------+
+| cam 7 - cam 8   | /sys/class/gpio/gpio486      | gpiochip0 line 138   | PAC.00   |
++-----------------+------------------------------+----------------------+----------+
 
 - For RQX-58G:
 
@@ -199,8 +199,12 @@ The 4 GPIOs used to send Fsync signal are listed below:
 | cam 7 - cam 8   | /sys/class/gpio/gpio445 |          |
 +-----------------+-------------------------+----------+
 
-The sample codes can be downloaded from this link: https://github.com/Adlink-ROS/fsync_manual_trigger
-Before using this program, please make sure the cameras are switched to Fsync Manual Trigger mode.
+The sample applications can be downloaded from the links below:
+
+- Script based application - https://github.com/Adlink-ROS/fsync_manual_trigger
+- ROS 2 based application - https://github.com/Adlink-ROS/sensor_trigger
+
+Before using the program, please make sure the cameras are switched to Fsync Manual Trigger mode.
 
 .. note::
 
