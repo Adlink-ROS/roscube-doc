@@ -424,7 +424,7 @@
 <ul class="simple">
 <li><p><strong>Free Run mode</strong> - The camera runs at default FPS.</p></li>
 <li><p><strong>Fsync Auto Trigger mode</strong> - The camera shutter is automatically triggered by FPGA.</p></li>
-<li><p><strong>Fsync Manual Trigger mode</strong> - The camera shutter is manually triggered by Fsync signal.</p></li>
+<li><p><strong>Fsync Manual Trigger mode</strong> - The camera shutter is manually triggered by Application.</p></li>
 </ul>
 <div class="line-block">
 <div class="line">For Free Run mode, the FPS is fixed at default frame rate.</div>
@@ -565,31 +565,37 @@ Once you know which GPIOs can be used, you can write a program by setting high/l
 </ul>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 48%" />
-<col style="width: 19%" />
+<col style="width: 22%" />
+<col style="width: 38%" />
+<col style="width: 28%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Camera Number</p></th>
-<th class="head"><p>Sysfs Pin Number</p></th>
+<th class="head"><p>JetPack 5.x Sysfs Pin Number</p></th>
+<th class="head"><p>JetPack 6.x gpiochip</p></th>
 <th class="head"><p>Pin Name</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>cam 1 - cam 2</p></td>
 <td><p>/sys/class/gpio/gpio440</p></td>
+<td><p>gpiochip0 line 92</p></td>
 <td><p>PP.00</p></td>
 </tr>
 <tr class="row-odd"><td><p>cam 3 - cam 4</p></td>
 <td><p>/sys/class/gpio/gpio397</p></td>
+<td><p>gpiochip0 line 49</p></td>
 <td><p>PH.06</p></td>
 </tr>
 <tr class="row-even"><td><p>cam 5 - cam 6</p></td>
 <td><p>/sys/class/gpio/gpio487</p></td>
+<td><p>gpiochip0 line 139</p></td>
 <td><p>PAC.01</p></td>
 </tr>
 <tr class="row-odd"><td><p>cam 7 - cam 8</p></td>
 <td><p>/sys/class/gpio/gpio486</p></td>
+<td><p>gpiochip0 line 138</p></td>
 <td><p>PAC.00</p></td>
 </tr>
 </tbody>
@@ -628,8 +634,12 @@ Once you know which GPIOs can be used, you can write a program by setting high/l
 </tr>
 </tbody>
 </table>
-<p>The sample codes can be downloaded from this link: <a class="reference external" href="https://github.com/Adlink-ROS/fsync_manual_trigger">https://github.com/Adlink-ROS/fsync_manual_trigger</a>
-Before using this program, please make sure the cameras are switched to Fsync Manual Trigger mode.</p>
+<p>The sample applications can be downloaded from the links below:</p>
+<ul class="simple">
+<li><p>Script based application - <a class="reference external" href="https://github.com/Adlink-ROS/fsync_manual_trigger">https://github.com/Adlink-ROS/fsync_manual_trigger</a></p></li>
+<li><p>ROS 2 based application - <a class="reference external" href="https://github.com/Adlink-ROS/sensor_trigger">https://github.com/Adlink-ROS/sensor_trigger</a></p></li>
+</ul>
+<p>Before using the program, please make sure the cameras are switched to Fsync Manual Trigger mode.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In Fsync Manual Trigger mode, the performance and the precision depends on the program as well as the system load. <strong>Fsync Auto Trigger</strong> mode is much more precise than manual trigger mode.</p>
